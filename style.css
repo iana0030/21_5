@@ -5,3 +5,61 @@
 body {
     margin: 0;
 }
+
+ul li:hover ul li {
+    display: block;
+}
+
+
+#main_nav a {
+    color: #fff;
+    background-color: #000;
+    display: block;
+    height: 64px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: .5;
+    cursor: pointer;
+
+}
+
+#main_nav a:hover {
+    background-color: aqua;
+    transition: 0.4s;
+}
+
+#main_nav ul {
+    list-style: none;
+    display: flex;
+}
+
+
+#main_nav li {
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+
+
+.submenu li {
+    display: none;
+    position: absolute;
+    top: 0px;
+
+}
+
+
+.submenu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+}
+
+.submenu li {
+    position: relative;
+}
