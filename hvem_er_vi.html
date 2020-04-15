@@ -74,33 +74,80 @@
     <section id="hvem">
         <h1></h1>
         <p></p>
-        <img src="" alt="">
     </section>
 
+    <section class="data-container"></section>
+
+
+    <template>
+        <article id="personer">
+            <h3 id="navn"></h3>
+            <img src="" alt="">
+            <p id="info"></p>
+            <p id="email"></p>
+            <p id="content"></p>
+        </article>
+    </template>
 
     <footer>
     </footer>
 
 
     <script>
+        const pageURL = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/pages/312";
+        const postURL = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/person?per_page=100";
+        let topContent;
+        let allePersoner = [];
+
         document.addEventListener("DOMContentLoaded", start);
         console.log("load");
 
-        const postURL = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/personer";
-
-        async function start() {
+        function start() {
             console.log("start");
-            const response1 = await fetch(postURL);
-            const personer = await response1.json();
-            vis(personer);
+            hentData();
+        }
+
+        async function hentData() {
+            console.log("hentData");
+            const response1 = await fetch(pageURL);
+            const response2 = await fetch(postURL);
+
+            topContent = await response1.json();
+            allePersoner = await response2.json();
+
+
+            visPersoner();
+            visTop();
+            //  visBottom();
         }
 
         /* indhentning af json her*/
-        function vis(page) {
-            console.log(page);
+        function visPersoner() {
+            const container = document.querySelector(".data-container");
+            const personTemplate = document.querySelector("template");
 
-            document.querySelector("h1").textContent = page.title.rendered;
-            document.querySelector("p").innerHTML = page.content.rendered;
+            allePersoner.forEach(person => {
+
+                let klon = personTemplate.cloneNode(true).content;
+
+                klon.querySelector("#navn").textContent = person.navn + ", " + person.position;
+                klon.querySelector("img").src = person.person_img.guid;
+                klon.querySelector("#info").textContent = person.info;
+                klon.querySelector("#email").innerHTML = person.email;
+                klon.querySelector("#personer").addEventListener("click", () => {
+                    // location.href = `single.html?id=${ret.id}`;
+                });
+
+                container.appendChild(klon)
+            })
+
+        }
+
+
+        function visTop() {
+
+            document.querySelector("h1").textContent = topContent.title.rendered;
+            document.querySelector("p").innerHTML = topContent.content.rendered;
         }
     </script>
 </body></html>
