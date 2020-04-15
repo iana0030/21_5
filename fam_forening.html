@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <title>21-5 - Familier og foreninger</title>
+
+</head>
+
+<body>
+
+    <!-- html templates her -->
+    <section id="splash"></section>
+
+    <nav id="main_nav">
+        <ul>
+            <li><a>Forside</a></li>
+            <li><a>Omkostninger</a>
+                <ul class="submenu">
+                    <li><a>Family Pris</a></li>
+                    <li><a>Grande Pris</a></li>
+                    <li><a>Large Pris</a></li>
+                    <li><a>Gensalg af foreninger</a></li>
+                    <li><a>Skat og Jura</a></li>
+                    <li><a>Investering</a></li>
+                    <li><a>Til salg lige nu</a></li>
+                </ul>
+            </li>
+            <li><a>Destinationer</a>
+                <ul class="submenu">
+                    <li><a>Mallorca</a></li>
+                    <li><a>Sydspanien</a></li>
+                    <li><a>Toscana</a></li>
+                    <li><a>Sydfrankrig</a></li>
+                    <li><a>Chamonix</a></li>
+                    <li><a>New York</a></li>
+                    <li><a>Barcelona</a></li>
+                    <li><a>Paris</a></li>
+                    <li><a>Rom</a></li>
+                </ul>
+            </li>
+
+            <li><a>Om os</a>
+                <ul class="submenu">
+                    <li><a>Hvem er vi?</a></li>
+                    <li><a>Hvorfor 21-5?</a></li>
+                    <li><a>Hvordan fungere det?</a></li>
+                    <li><a>Hvad gør vi?</a></li>
+                    <li><a>Placering</a></li>
+                    <li><a>Ofte stillede spørgsmål</a></li>
+                    <li><a>Ejerforening</a></li>
+
+
+                </ul>
+            </li>
+            <li><a>Kontakt</a>
+                <ul class="submenu">
+                    <li><a>Kaffemøde</a></li>
+                    <li><a>Orienteringsmøde</a></li>
+                </ul>
+            </li>
+            <li><a>Familier & Foreninger</a>
+                <ul class="submenu">
+                    <li><a>Tidligere foreninger</a></li>
+                    <li><a>Udtalelser</a></li>
+                    <li><a>Tidligere benyttelse</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </nav>
+
+    <header id="showcase"></header>
+
+
+    <h1></h1>
+    <p></p>
+    <img src="" alt="">
+
+    <footer>
+    </footer>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+        console.log("load");
+
+        const endpoint = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/pages/190";
+
+        async function start() {
+            console.log("start");
+            const response = await fetch(endpoint);
+            const json = await response.json();
+            vis(json);
+        }
+
+        /* indhentning af json her*/
+        function vis(page) {
+            console.log(page);
+
+            document.querySelector("h1").textContent = page.title.rendered;
+            document.querySelector("p").innerHTML = page.content.rendered;
+        }
+    </script>
+</body></html>
