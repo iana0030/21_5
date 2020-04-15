@@ -77,10 +77,16 @@
 
     <header id="showcase"></header>
 
+    <section class="data-container"></section>
     <template>
-        <h1></h1>
-        <p></p>
-
+        <article id="destinationer">
+            <h1></h1>
+            <h3></h3>
+            <p></p>
+            <h3></h3>
+            <p></p>
+            <img src="" alt="">
+        </article>
     </template>
 
     <footer>
@@ -88,24 +94,52 @@
 
 
     <script>
+        const endpoint = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/destination";
+        let destinationer = [];
+
         document.addEventListener("DOMContentLoaded", start);
         console.log("load");
 
-        const endpoint = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/destination";
-
-        async function start() {
+        function start() {
             console.log("start");
+            hentJSON();
+        }
+
+        /* json hentes her */
+        async function hentJSON() {
             const response = await fetch(endpoint);
-            const json = await response.json();
-            vis(json);
+            destinationer = await response.json();
+            visDest();
         }
 
-        /* indhentning af json her*/
-        function vis(page) {
-            console.log(page);
 
-            /* document.querySelector("h1").textContent = page.title.rendered;
-            document.querySelector("p").innerHTML = page.content.rendered;*/
+        /* json sættes ind her */
+        function visDest() {
+            const container = document.querySelector(".data-container");
+            const destTemplate = document.querySelector("template");
+            let klon = destTemplate.cloneNode(true).content;
+
+            /* destinationerne som vises */
+            destinationer.forEach(destination => {
+                console.log(destination);
+
+                klon.querySelector("h1").textContent = destination.title.rendered;
+                klon.querySelector("p").innerHTML = destination.content.rendered;
+
+                /* eventlistener som går til ny side ved klik på enkel destination */
+                klon.querySelector("#destinationer").addEventListener("click", () => {
+                    //location.href = `single.html?id=${destination.id}`;
+                });
+
+                container.appendChild(klon)
+
+            })
+
+
+
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
