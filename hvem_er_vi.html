@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <title>21-5 - Familier og foreninger</title>
+    <title>21-5 - Om os: Hvem er vi?</title>
 
 </head>
 
@@ -74,7 +74,7 @@
     <header id="showcase"></header>
 
 
-    <section id="fam_forening">
+    <section id="hvem">
         <h1></h1>
         <p></p>
         <img src="" alt="">
@@ -89,13 +89,13 @@
         document.addEventListener("DOMContentLoaded", start);
         console.log("load");
 
-        const endpoint = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/pages/190";
+        const postURL = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/personer";
 
         async function start() {
             console.log("start");
-            const response = await fetch(endpoint);
-            const json = await response.json();
-            vis(json);
+            const response1 = await fetch(postURL);
+            const personer = await response1.json();
+            vis(personer);
         }
 
         /* indhentning af json her*/

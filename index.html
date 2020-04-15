@@ -49,7 +49,7 @@
                 <ul class="submenu">
                     <li><a>Hvem er vi?</a></li>
                     <li><a>Hvorfor 21-5?</a></li>
-                    <li><a>Hvordan fungere det?</a></li>
+                    <li><a>Hvordan fungerer det?</a></li>
                     <li><a>Hvad gør vi?</a></li>
                     <li><a>Placering</a></li>
                     <li><a>Ofte stillede spørgsmål</a></li>
@@ -89,7 +89,7 @@
         document.addEventListener("DOMContentLoaded", start);
         console.log("load");
 
-        const endpoint = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2";
+        const endpoint = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/pages/178";
 
         async function start() {
             console.log("start");
@@ -102,8 +102,8 @@
         function vis(page) {
             console.log(page);
 
-            /* document.querySelector("h1").textContent = page.title.rendered;
-            document.querySelector("p").innerHTML = page.content.rendered;*/
+            document.querySelector("h1").textContent = page.title.rendered;
+            document.querySelector("p").innerHTML = page.content.rendered;
         }
     </script>
 </body></html>

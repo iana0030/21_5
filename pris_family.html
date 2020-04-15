@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <title>21-5 - Familier og foreninger</title>
+    <title>21-5 - Omkostninger: Pris på Family</title>
 
 </head>
 
@@ -73,23 +73,22 @@
 
     <header id="showcase"></header>
 
-
-    <section id="fam_forening">
+    <section id="family">
         <h1></h1>
         <p></p>
         <img src="" alt="">
     </section>
-
 
     <footer>
     </footer>
 
 
     <script>
+        /* indhentning af investering page */
+        const endpoint = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/pages/62";
+
         document.addEventListener("DOMContentLoaded", start);
         console.log("load");
-
-        const endpoint = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/pages/190";
 
         async function start() {
             console.log("start");
@@ -101,7 +100,6 @@
         /* indhentning af json her*/
         function vis(page) {
             console.log(page);
-
             document.querySelector("h1").textContent = page.title.rendered;
             document.querySelector("p").innerHTML = page.content.rendered;
         }
