@@ -74,6 +74,22 @@
         <h1></h1>
         <p></p>
         <img src="" alt="">
+
+
+
+        <h3>Jeg vil gerne have besked, når der sættes datoer for nye orinteringsmøder</h3>
+
+        <div class="contact_form">
+            <form action="/action_page.php">
+                <label for="name">Navn</label>
+                <input type="text" id="name" name="name" placeholder="Dit navn..">
+                <label for="email">E-mail</label>
+                <input type="text" id="email" name="email" placeholder="Din email..">
+                <label for="telefon">Telefon nr.</label>
+                <input type="text" id="telefon" name="telefon" placeholder="Dit nummer..">
+                <input type="send" value="send">
+            </form>
+        </div>
     </section>
 
     <footer>
@@ -100,5 +116,8 @@
             document.querySelector("h1").textContent = page.title.rendered;
             document.querySelector("p").innerHTML = page.content.rendered;
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
