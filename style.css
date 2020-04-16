@@ -63,3 +63,309 @@ ul li:hover ul li {
 .submenu li {
     position: relative;
 }
+
+
+h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+
+    color: #19191A;
+}
+
+h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+
+    color: #19191A;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    color: #19191A;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***** KONTAKT ******/
+
+#kontakt_info {
+    margin: 45px;
+}
+
+#kontakt_info p {
+    font-size: 15px;
+}
+
+.contact_form {
+    background-color: #3E3F40;
+    padding: 20px;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 17px;
+}
+
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+
+}
+
+input[type=send] {
+    background-color: #F25A38;
+    color: white;
+    padding: 10px 5px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+#kommentar {
+    font-family: 'Open Sans', sans-serif;
+
+
+}
+
+
+
+
+
+/****** KONTAKT SLUT ********/
+
+#orientering {
+    margin: 45px;
+}
