@@ -67,25 +67,135 @@ ul li:hover ul li {
 
 h1 {
     font-family: 'Manrope', sans-serif;
-    font-size: 20px;
+    font-size: 1.5em;
+    color: rgba(25, 25, 26, 0.56);
+    margin: 0.5em;
+    text-align: center;
+}
 
-    color: #19191A;
+h2 {
+    font-size: 1em;
 }
 
 h3 {
     font-family: 'Manrope', sans-serif;
-    font-size: 20px;
-
+    font-size: 1.5em;
     color: #19191A;
 }
 
 p {
     font-family: 'Open Sans', sans-serif;
     color: #19191A;
+    margin: 1em;
+    line-height: 1.5em;
+}
+
+img {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+figure {
+    margin: 0;
+}
+
+footer {
+    background-color: #3e3f40;
+    display: flex;
+    justify-content: flex-end;
+}
+
+footer i {
+    color: #fff;
+    margin: 0.3em;
+
 }
 
 
 
+/*------------------MEDIA QUERIES-------------*/
+@media screen and (min-width:600px) {
+    ul li:hover ul li {
+        display: block;
+    }
+
+
+    #main_nav a {
+        color: #fff;
+        background-color: #000;
+        display: block;
+        height: 64px;
+        font-family: 'Roboto', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        opacity: .5;
+        cursor: pointer;
+
+    }
+
+    #main_nav a:hover {
+        background-color: aqua;
+        transition: 0.4s;
+    }
+
+    #main_nav ul {
+        list-style: none;
+        display: flex;
+    }
+
+
+    #main_nav li {
+        width: 100%;
+        text-align: center;
+        position: relative;
+    }
+
+
+
+    .submenu li {
+        display: none;
+        position: absolute;
+        top: 0px;
+
+    }
+
+
+    .submenu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+    }
+
+    .submenu li {
+        position: relative;
+    }
+
+
+    h1 {
+        font-family: 'Manrope', sans-serif;
+        font-size: 20px;
+
+        color: #19191A;
+    }
+
+    h3 {
+        font-family: 'Manrope', sans-serif;
+        font-size: 20px;
+
+        color: #19191A;
+    }
+
+    p {
+        font-family: 'Open Sans', sans-serif;
+        color: #19191A;
+    }
+
+
+}
 
 
 
