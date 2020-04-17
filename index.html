@@ -18,6 +18,29 @@
     <!-- html templates her -->
     <section id="splash"></section>
 
+    <!--------------- MObile First navbar------->
+    <nav id="navbar">
+        <div>
+            <a href="#hjem">
+                <img src="logo.svg" alt="logo" id="logo">
+            </a>
+        </div>
+        <ul class="nav_links">
+            <li><a href="index.html">Forside</a></li>
+            <li><a href="omkostninger.html">Omkostninger</a>
+            <li><a href="destinationer.html">Destinationer</a>
+            <li><a href="omos.html">Om os</a>
+            <li><a href="kontakt_info.html">Kontakt</a>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+
+    <!-------------------------Nav til desktop---------------->
     <nav id="main_nav">
         <ul>
             <li><a href="index.html">Forside</a></li>
@@ -114,4 +137,7 @@
             document.querySelector("p").innerHTML = page.content.rendered;
         }
     </script>
+
+    <script src="burger.js"></script>
+
 </body></html>

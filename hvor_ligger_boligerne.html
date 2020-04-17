@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e1ee2b9569.js" crossorigin="anonymous"></script>
     <title>21-5 - Om os: Hvor ligger boligerne?</title>
 
 </head>
@@ -14,6 +15,25 @@
 
     <!-- html templates her -->
     <section id="splash"></section>
+    <nav id="navbar">
+        <div>
+            <a href="#hjem">
+                <img src="logo.svg" alt="logo" id="logo">
+            </a>
+        </div>
+        <ul class="nav_links">
+            <li><a href="index.html">Forside</a></li>
+            <li><a href="omkostninger.html">Omkostninger</a>
+            <li><a href="destinationer.html">Destinationer</a>
+            <li><a href="omos.html">Om os</a>
+            <li><a href="kontakt_info.html">Kontakt</a>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
 
     <nav id="main_nav">
         <ul>
@@ -73,14 +93,35 @@
 
     <section id="hvor">
         <h1></h1>
+        <div id="overview">
+            <ul>
+                <li><a href="hvem_er_vi.html">Hvem er vi?</a></li>
+                <li><a href="hvorfor.html">Hvorfor 21-5?</a></li>
+                <li><a href="hvordan.html">Hvordan fungerer det?</a></li>
+                <li><a href="hvad_gor_vi.html">Hvad gør vi?</a></li>
+                <li><a href="hvor_ligger_boligerne.html">Placering</a></li>
+                <li><a href="faq.html">Ofte stillede spørgsmål</a></li>
+            </ul>
+        </div>
         <p></p>
         <img src="" alt="">
     </section>
 
 
     <footer>
-    </footer>
+        <p>andet</p>
+        <ul>
+            <li><a>Nyheder</a></li>
+            <li><a>Presse</a></li>
+            <li><a>Cookies og privatlivspolitik</a></li>
+            <li><a>Ofte stillede spørgsmål</a></li>
 
+        </ul>
+
+        <a href="https://www.facebook.com/enogtyvefem"><i class="fab fa-facebook-square fa-3x"></i></a>
+        <a href="https://www.instagram.com/215moments/?hl=da"><i class="fab fa-instagram fa-3x"></i></a>
+
+    </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", start);
@@ -103,4 +144,5 @@
             document.querySelector("p").innerHTML = page.content.rendered;
         }
     </script>
+    <script src="burger.js"></script>
 </body></html>
