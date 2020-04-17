@@ -6,7 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Open+Sans&display=swap" rel="stylesheet">
     <title>21-5 - Om os: Hvem er vi?</title>
+
+
+    <style>
+        img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+
+        .hvem_data-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            grid-gap: 6px;
+            justify-items: center;
+        }
+
+        #personer {
+            width: 450px;
+        }
+
+        details:hover {
+            opacity: 0.7;
+            transition: 0.2s;
+        }
+
+        details {
+            font-family: 'Open Sans', sans-serif;
+            color: #19191A;
+            margin: 1em;
+            line-height: 1.5em;
+            cursor: pointer;
+        }
+
+        #navn {
+            text-align: center;
+        }
+    </style>
 
 </head>
 
@@ -76,16 +116,19 @@
         <p></p>
     </section>
 
-    <section class="data-container"></section>
+    <section class="hvem_data-container"></section>
 
 
     <template>
         <article id="personer">
             <h3 id="navn"></h3>
             <img src="" alt="">
-            <p id="info"></p>
+            <p id="pos"></p>
             <p id="email"></p>
-            <p id="content"></p>
+            <details>
+                <summary id="info"></summary>
+                <p id="content"></p>
+            </details>
         </article>
     </template>
 
@@ -123,29 +166,28 @@
 
         /* indhentning af json her*/
         function visPersoner() {
-            const container = document.querySelector(".data-container");
+            const container = document.querySelector(".hvem_data-container");
             const personTemplate = document.querySelector("template");
 
             allePersoner.forEach(person => {
 
                 let klon = personTemplate.cloneNode(true).content;
 
-                klon.querySelector("#navn").textContent = person.navn + ", " + person.position;
+                klon.querySelector("#navn").textContent = person.navn;
                 klon.querySelector("img").src = person.person_img.guid;
-                klon.querySelector("#info").textContent = person.info;
+                //   klon.querySelector("#pos").textContent = person.position;
                 klon.querySelector("#email").innerHTML = person.email;
+                klon.querySelector("#info").textContent = person.info + person.position;
+                klon.querySelector("#content").innerHTML = person.content.rendered;
                 klon.querySelector("#personer").addEventListener("click", () => {
-                    // location.href = `single.html?id=${ret.id}`;
+                    // location.href = `single.html?id=${person.id}`;
                 });
-
                 container.appendChild(klon)
             })
 
         }
 
-
         function visTop() {
-
             document.querySelector("h1").textContent = topContent.title.rendered;
             document.querySelector("p").innerHTML = topContent.content.rendered;
         }
