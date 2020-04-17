@@ -203,6 +203,10 @@ footer i {
         display: none;
     }
 
+    #overview {
+        display: none;
+    }
+
     ul li:hover ul li {
         display: block;
     }
