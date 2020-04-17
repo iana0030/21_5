@@ -10,77 +10,125 @@ ul li:hover ul li {
     display: block;
 }
 
+section {
+    margin: 0;
+    padding: 0;
+}
 
-#main_nav a {
+
+#main_nav {
+
+    display: none;
+}
+
+img {
+    width: 100%;
+}
+
+/*-----------------------Burger Menu-------------------------*/
+#logo {
+    width: 40px;
+}
+
+
+#navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: #3E3F40;
     color: #fff;
-    background-color: #000;
-    display: block;
-    height: 64px;
-    font-family: 'Roboto', sans-serif;
+    z-index: 1;
+    padding: 0.6em;
+    flex-wrap: wrap;
+}
+
+#navbar h1 {
+    padding-left: 1em;
+}
+
+#navbar ul {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    opacity: .5;
-    cursor: pointer;
-
-}
-
-#main_nav a:hover {
-    background-color: aqua;
-    transition: 0.4s;
-}
-
-#main_nav ul {
     list-style: none;
-    display: flex;
+    padding: 0;
+}
+
+#navbar ul li a {
+    color: #fff;
+    letter-spacing: 0.2em;
+    font-family: 'Manrope', sans-serif;
+    text-decoration: none;
 }
 
 
-#main_nav li {
-    width: 100%;
-    text-align: center;
-    position: relative;
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
 }
 
 
-
-.submenu li {
-    display: none;
+.nav_links {
     position: absolute;
-    top: 0px;
-
-}
-
-
-.submenu {
+    right: 0px;
+    height: 70vh;
+    top: 6vh;
+    background-color: #3E3F40;
     display: flex;
     flex-direction: column;
-    position: absolute;
-    width: 100%;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    transform: translateY(-180%);
 }
 
-.submenu li {
-    position: relative;
+.nav_links li {
+    padding-top: 0;
+    margin: 0;
+    margin: 2em;
+    font-size: 1em;
 }
+
+.burger {
+    display: block;
+}
+
+
+.nav-active {
+    transform: translateY(0%);
+}
+
+/*----------------Defaults-------------------*/
 
 
 h1 {
     font-family: 'Manrope', sans-serif;
     font-size: 1.5em;
     color: rgba(25, 25, 26, 0.56);
-    margin: 0.5em;
+    margin-top: 4em;
+    ;
+    padding: 0;
     text-align: center;
+}
+
+#destinationer h1 {
+    margin-top: 1em;
 }
 
 h2 {
     font-size: 1em;
+    color: rgba(25, 25, 26, 0.56);
 }
 
 h3 {
     font-family: 'Manrope', sans-serif;
     font-size: 1.5em;
     color: #19191A;
+    color: rgba(25, 25, 26, 0.56);
 }
 
 p {
@@ -112,14 +160,52 @@ footer i {
 
 }
 
+/*---------------overview på individuelle sider----------------*/
+
+#overview ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0.5em;
+    padding: 0.5em;
+    ;
+}
+
+#overview ul li {
+    display: flex;
+    font-family: 'Manrope', sans-serif;
+    margin: 0.3em;
+}
+
+#overview ul li a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #2EA690;
+    padding: 0.3em;
+    margin: 0;
+    border-radius: 10px;
+    opacity: .7;
+
+}
+
+#overview .destinationer {
+    margin-top: 5em;
+}
+
+
 
 
 /*------------------MEDIA QUERIES-------------*/
 @media screen and (min-width:600px) {
+
     ul li:hover ul li {
         display: block;
     }
 
+    #main_nav {
+        display: block;
+    }
 
     #main_nav a {
         color: #fff;
@@ -671,3 +757,32 @@ input[type=send] {
 
 
 /****** TIDLIGERE BENYTTELSE SLUT ******/
+
+
+
+
+
+
+
+
+
+/*----------Animationer-----------------*/
+
+
+.drop {
+    animation-name: drop_kf;
+    animation-duration: 0.6s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+@keyframes drop_kf {
+    from {
+        transform: translateY(-150vw);
+    }
+
+    to {
+        transform: translateY(-3vw);
+    }
+}
