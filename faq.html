@@ -6,9 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Open+Sans&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e1ee2b9569.js" crossorigin="anonymous"></script>
-    <title>21-5</title>
+    <title>21-5 - Ofte stillede spørgsmål</title>
 
+    <style>
+        @media screen and (min-width:750px) {
+            #faq {
+                max-width: 1300px;
+                margin: 0 auto;
+                padding: 0 2em;
+            }
+
+            article {
+                margin: 1em;
+                border-top: 1px solid #3E3F40;
+            }
+
+            .answers p {
+                margin: 1.5em 3em;
+            }
+
+            .sub-accordion {
+                //   background-color: #f0f0f0;
+                cursor: pointer;
+                transition: 0.4s;
+                padding: 0 0.5em;
+            }
+
+
+            .sub-accordion:hover {
+                // background-color: #ccc;
+            }
+
+            .sub-accordion h3:hover {
+                color: rgba(25, 25, 26, 0.65);
+                transition: 0.4s;
+            }
+
+            .panel {
+                display: none;
+                overflow: hidden;
+            }
+
+            .active {
+                display: block;
+                transition: 0.4s;
+            }
+
+
+
+
+        }
+    </style>
 
 
 </head>
@@ -92,19 +142,34 @@
 
     <header id="showcase"></header>
 
+    <section id="faq">
+        <h1 class="overskrift"></h1>
+        <div id="overview">
+            <ul>
+                <li><a href="hvem_er_vi.html">Hvem er vi?</a></li>
+                <li><a href="hvorfor.html">Hvorfor 21-5?</a></li>
+                <li><a href="hvordan.html">Hvordan fungerer det?</a></li>
+                <li><a href="hvad_gor_vi.html">Hvad gør vi?</a></li>
+                <li><a href="hvor_ligger_boligerne.html">Placering</a></li>
+                <li><a href="faq.html">Ofte stillede spørgsmål</a></li>
+            </ul>
+        </div>
 
-    <h1></h1>
-    <div id="overview">
-        <ul>
-            <li><a href="hvem_er_vi.html">Hvem er vi?</a></li>
-            <li><a href="hvorfor.html">Hvorfor 21-5?</a></li>
-            <li><a href="hvordan.html">Hvordan fungerer det?</a></li>
-            <li><a href="hvad_gor_vi.html">Hvad gør vi?</a></li>
-            <li><a href="hvor_ligger_boligerne.html">Placering</a></li>
-            <li><a href="faq.html">Ofte stillede spørgsmål</a></li>
-        </ul>
-    </div>
-    <p></p>
+        <p class="side_indhold"></p>
+    </section>
+
+    <div class="kat" data-kat="21-5 generelle spørgsmål"></div>
+
+    <template>
+        <article class="sub-accordion questions">
+            <h3 class="spgsml">
+            </h3>
+        </article>
+        <article class="panel answers">
+            <p class="svar"></p>
+        </article>
+    </template>
+
 
     <footer>
         <p>andet</p>
@@ -122,24 +187,64 @@
     </footer>
 
     <script>
+        const pageURL = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/pages/447";
+        const postURL = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/question?per_page=100";
+        let topContent;
+        let alleSpgsml = [];
+
         document.addEventListener("DOMContentLoaded", start);
         console.log("load");
 
-        const endpoint = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/";
 
-        async function start() {
+        function start() {
             console.log("start");
-            const response = await fetch(endpoint);
-            const json = await response.json();
-            vis(json);
+            hentData();
+        }
+
+        async function hentData() {
+            console.log("hentData");
+            const response1 = await fetch(pageURL);
+            const response2 = await fetch(postURL);
+
+            topContent = await response1.json();
+            alleSpgsml = await response2.json();
+
+
+            visFAQ();
+            visTop();
         }
 
         /* indhentning af json her*/
-        function vis(page) {
-            console.log(page);
+        function visFAQ() {
+            const container = document.querySelector("#faq");
+            const faqTemplate = document.querySelector("template");
 
-            document.querySelector("h1").textContent = page.title.rendered;
-            document.querySelector("p").innerHTML = page.content.rendered;
+            alleSpgsml.forEach(question => {
+
+                let klon = faqTemplate.cloneNode(true).content;
+
+                klon.querySelector(".spgsml").innerHTML = question.sprgsml;
+                klon.querySelector(".svar").textContent = question.svar;
+                // klon.querySelector(".kat").innerHTML = question.kategori;
+                container.appendChild(klon)
+            })
+
+
+            document.querySelector(".questions").addEventListener("click", visSvar);
+        }
+
+
+        function visSvar() {
+            console.log(this.nextElementSibling);
+            this.nextElementSibling.classList.toggle("active");
+
+        }
+
+
+
+        function visTop() {
+            document.querySelector(".overskrift").textContent = topContent.title.rendered;
+            document.querySelector(".side_indhold").innerHTML = topContent.content.rendered;
         }
     </script>
     <script src="burger.js"></script>
