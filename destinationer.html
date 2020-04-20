@@ -159,7 +159,7 @@
         }
 
 
-        /* json sættes ind her */
+        /* funktionen viser hver destination i desktop */
         function visDest() {
             const container = document.querySelector(".data-container");
             const destTemplate = document.querySelector("template");
@@ -182,10 +182,13 @@
             })
         }
 
+
+        /* funktionen sætter titel på siden ind på siden */
         function visTop() {
             document.querySelector("h1").textContent = topContent.title.rendered;
         }
 
+        /* funktionen sætter den nederste del ind. her istandsættelse osv. */
         function visBottom() {
             document.querySelector(".istand_title").innerHTML = bottomContent.title.rendered;
             document.querySelector(".istand_content").innerHTML = bottomContent.content.rendered;
