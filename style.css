@@ -368,6 +368,10 @@ footer i {
         display: block;
     }
 
+    #kontakt_info {
+        margin: 45px;
+    }
+
 }
 
 
@@ -596,10 +600,6 @@ footer i {
 
 /***** KONTAKT ******/
 
-#kontakt_info {
-    margin: 45px;
-}
-
 #kontakt_info p {
     font-size: 15px;
 }
@@ -610,6 +610,7 @@ footer i {
     font-family: 'Open Sans', sans-serif;
     color: white;
     font-size: 17px;
+    margin: 45px;
 }
 
 input[type=text],

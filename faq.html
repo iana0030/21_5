@@ -12,6 +12,43 @@
     <title>21-5 - Ofte stillede spørgsmål</title>
 
     <style>
+        article {
+            margin: 1em;
+            border-top: 1px solid #3E3F40;
+        }
+
+        .answers p {
+            margin: 1.5em 3em;
+        }
+
+        .sub-accordion {
+            //   background-color: #f0f0f0;
+            cursor: pointer;
+            transition: 0.4s;
+            padding: 0 0.5em;
+        }
+
+
+        .sub-accordion:hover {
+            // background-color: #ccc;
+        }
+
+        .sub-accordion h3:hover {
+            color: rgba(25, 25, 26, 0.65);
+            transition: 0.4s;
+        }
+
+        .panel {
+            display: none;
+            overflow: hidden;
+        }
+
+        .active {
+            display: block;
+            transition: 0.4s;
+        }
+
+
         @media screen and (min-width:750px) {
             #faq {
                 max-width: 1300px;
@@ -19,46 +56,12 @@
                 padding: 0 2em;
             }
 
-            article {
-                margin: 1em;
-                border-top: 1px solid #3E3F40;
-            }
-
-            .answers p {
-                margin: 1.5em 3em;
-            }
-
-            .sub-accordion {
-                //   background-color: #f0f0f0;
-                cursor: pointer;
-                transition: 0.4s;
-                padding: 0 0.5em;
-            }
-
-
-            .sub-accordion:hover {
-                // background-color: #ccc;
-            }
-
-            .sub-accordion h3:hover {
-                color: rgba(25, 25, 26, 0.65);
-                transition: 0.4s;
-            }
-
-            .panel {
-                display: none;
-                overflow: hidden;
-            }
-
-            .active {
-                display: block;
-                transition: 0.4s;
-            }
 
 
 
 
         }
+
     </style>
 
 
@@ -136,6 +139,7 @@
         <h1 class="overskrift"></h1>
         <div id="overview">
             <ul>
+                <li><a href="omos.html">Om os</a></li>
                 <li><a href="hvem_er_vi.html">Hvem er vi?</a></li>
                 <li><a href="hvorfor.html">Hvorfor 21-5?</a></li>
                 <li><a href="hvordan.html">Hvordan fungerer det?</a></li>
@@ -238,6 +242,9 @@
             document.querySelector(".overskrift").textContent = topContent.title.rendered;
             document.querySelector(".side_indhold").innerHTML = topContent.content.rendered;
         }
+
     </script>
     <script src="burger.js"></script>
-</body></html>
+</body>
+
+</html>
