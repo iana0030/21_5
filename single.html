@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="detalje">
+        <button id="destination_x">X</button>
+        <article id="destinationer">
+            <h1></h1>
+            <h3></h3>
+            <p></p>
+            <h3></h3>
+            <p></p>
+            <img src="" alt="">
+        </article>
+    </section>
+
+
+    <script>
+        //Går op og får URL'en
+        const Urlparameter = new URLSearchParams(window.location.search);
+
+        //Giv mig den del af parameteret der er ID'et
+        const id = Urlparameter.get("id");
+
+        const detalje = document.querySelector(".detalje");
+        let destination;
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            hentData();
+        }
+
+        async function hentData() {
+            let jsonData = await fetch(`http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/destination/${id}`);
+
+            destination = await jsonData.json();
+
+            visDestination();
+        }
+
+        //sammenligner med det ID vi har fået tilsendt oppe i URL'en
+        function visDestination() {
+
+            detalje.querySelector("button").addEventListener("click", () => {
+                history.back();
+            });
+
+            detalje.querySelector("h1").textContent = destination.title.rendered;
+            detalje.querySelector("p").innerHTML = destination.content.rendered;
+        }
+
+        //function addEventListenersToButtons() {
+        //document.querySelectorAll(".filter").forEach(elm => {
+        //elm.addEventListener("click", filtrering);
+
+        //})
+        //}
+    </script>
+</body></html>

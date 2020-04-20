@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -38,7 +40,7 @@ img {
     position: fixed;
     width: 100%;
     top: 0;
-    background: #3E3F40;
+    background: #403C38;
     color: #fff;
     z-index: 1;
     padding: 0.6em;
@@ -76,8 +78,8 @@ img {
     position: absolute;
     right: 0px;
     height: 70vh;
-    top: 6vh;
-    background-color: #3E3F40;
+    top: 10vh;
+    background-color: #403C38;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -104,9 +106,57 @@ img {
 
 /*----------------Defaults-------------------*/
 
+.btn {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 2.5em;
+    text-decoration: none;
+}
+
+#input_btn {
+    background-color: #798C35;
+}
+
+#myBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 310px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 2em;
+    background-color: #fff;
+
+}
+
+#destination_x {
+    border: none;
+    font-size: 2em;
+    background-color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0.4em;
+
+}
+
+
+#showcase .iframe_container {
+    position: relative;
+    width: 100%;
+    padding-top: 4em;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.iframe_container iframe {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
 h1 {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 2em;
     color: rgba(25, 25, 26, 0.56);
     margin-top: 4em;
@@ -119,12 +169,15 @@ h1 {
 }
 
 h2 {
+    font-family: 'Playfair Display', serif;
     font-size: 1.3em;
     color: rgba(25, 25, 26, 0.56);
+    margin: 1em;
+    line-height: 1.5em;
 }
 
 h3 {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 1.5em;
     color: #19191A;
     color: rgba(25, 25, 26, 0.56);
@@ -149,7 +202,7 @@ figure {
 }
 
 footer {
-    background-color: #3e3f40;
+    background-color: #F2C48D;
     display: flex;
     justify-content: flex-end;
 }
@@ -175,17 +228,15 @@ footer i {
 #overview ul li {
     display: flex;
     font-family: 'Manrope', sans-serif;
-    margin: 0.3em;
+    margin: 0.5em;
 }
 
 #overview ul li a {
     text-decoration: none;
-    color: #fff;
-    background-color: #2EA690;
-    padding: 0.3em;
+    color: #798C35;
+    padding: 0.4em;
     margin: 0;
-    border-radius: 10px;
-    opacity: .7;
+    border: 1px solid #798C35;
 
 }
 
@@ -245,6 +296,12 @@ footer i {
         width: 100%;
         text-align: center;
         position: relative;
+    }
+
+    #myBtn:hover {
+        background-color: white;
+        opacity: 0.6;
+
     }
 
 
