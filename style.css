@@ -159,7 +159,7 @@ img {
 h1 {
     font-family: 'Playfair Display', serif;
     font-size: 2em;
-    color: rgba(25, 25, 26, 0.56);
+    color: #798C35;
     margin-top: 4em;
     padding: 0;
     text-align: center;
@@ -172,7 +172,7 @@ h1 {
 h2 {
     font-family: 'Playfair Display', serif;
     font-size: 1.3em;
-    color: rgba(25, 25, 26, 0.56);
+    color: #A2B481;
     margin: 1em;
     line-height: 1.5em;
     margin-left: 15px;
@@ -181,7 +181,7 @@ h2 {
 h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.5em;
-    color: #19191A;
+    color: #A2B481;
     color: rgba(25, 25, 26, 0.56);
     margin-left: 15px;
 }
@@ -189,7 +189,7 @@ h3 {
 h4 {
     font-family: 'Playfair Display', serif;
     font-size: 1.2em;
-    color: #19191A;
+    color: #A2B481;
     color: rgba(25, 25, 26, 0.56);
     margin-left: 15px;
 }
@@ -198,7 +198,7 @@ p,
 ol,
 ul {
     font-family: 'Open Sans', sans-serif;
-    color: #19191A;
+    color: #403C38;
     margin: 1em;
     line-height: 1.5em;
     font-size: 15px;
@@ -348,27 +348,17 @@ footer i {
 
 
     h1 {
-        font-family: 'Manrope', sans-serif;
         margin-top: 1.5em;
-        color: #19191A;
     }
 
     h2 {
         font-size: 1.3em;
-        color: #19191A;
     }
 
     h3 {
-        font-family: 'Manrope', sans-serif;
         font-size: 20px;
-
-        color: #19191A;
     }
 
-    p {
-        font-family: 'Open Sans', sans-serif;
-        color: #19191A;
-    }
 
     #dest_istand .data-container {
         display: block;
