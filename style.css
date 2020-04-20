@@ -121,14 +121,15 @@ img {
 #myBtn {
     position: fixed;
     bottom: 20px;
-    right: 310px;
+    left: 310px;
     border: none;
     outline: none;
     cursor: pointer;
     padding: 5px;
     font-size: 2em;
     background-color: #fff;
-
+    opacity: 0.7;
+    border-radius: 5px;
 }
 
 #destination_x {
@@ -211,6 +212,10 @@ img {
 
 figure {
     margin: 0;
+}
+
+iframe {
+    width: 100%;
 }
 
 footer {
@@ -304,6 +309,7 @@ footer i {
     #main_nav ul {
         list-style: none;
         display: flex;
+        margin: 0;
     }
 
 
@@ -369,6 +375,10 @@ footer i {
     }
 
     #kontakt_info {
+        margin: 45px;
+    }
+
+    #orientering {
         margin: 45px;
     }
 
@@ -642,6 +652,10 @@ input[type=send] {
     font-family: 'Open Sans', sans-serif;
 }
 
+.googlemaps {
+    margin: 2em 0;
+}
+
 
 /****** KONTAKT SLUT ********/
 
@@ -658,9 +672,7 @@ input[type=send] {
 
 /***** ORIENTERINGSMØDE ******/
 
-#orientering {
-    margin: 45px;
-}
+
 
 
 

@@ -4,11 +4,83 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e1ee2b9569.js" crossorigin="anonymous"></script>
+
+    <title>21-5 - Destinationer</title>
 </head>
 
 <body>
+    <!-- html templates her -->
+    <section id="splash"></section>
+
+    <nav id="navbar">
+        <div>
+            <a href="index.html">
+                <img src="logo.svg" alt="logo" id="logo">
+            </a>
+        </div>
+        <ul class="nav_links">
+            <li><a href="index.html">Forside</a></li>
+            <li><a href="omkostninger.html">Priser</a>
+            <li><a href="destinationer.html">Destinationer</a>
+            <li><a href="omos.html">Om os</a>
+            <li><a href="kontakt_info.html">Kontakt</a>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <nav id="main_nav">
+        <ul>
+            <li><a href="index.html">Forside</a></li>
+            <li><a href="omkostninger.html">Priser</a>
+                <ul class="submenu">
+                    <li><a href="pris_family.html">Priser på Family</a></li>
+                    <li><a href="pris_grande.html">Priser på Grande</a></li>
+                    <li><a href="pris_large.html">Priser på Large</a></li>
+                    <li><a href="gensalg.html">Gensalg af foreninger</a></li>
+                    <li><a href="skat_jura_finans.html">Skat og Jura</a></li>
+                    <li><a href="investering.html">Investering</a></li>
+                </ul>
+            </li>
+            <li><a href="destinationer.html">Destinationer</a>
+
+            </li>
+
+            <li><a href="omos.html">Om os</a>
+                <ul class="submenu">
+                    <li><a href="hvem_er_vi.html">Hvem er vi?</a></li>
+                    <li><a href="hvorfor.html">Hvorfor 21-5?</a></li>
+                    <li><a href="hvordan.html">Hvordan fungerer det?</a></li>
+                    <li><a href="hvad_gor_vi.html">Hvad gør vi?</a></li>
+                    <li><a href="hvor_ligger_boligerne.html">Placering</a></li>
+                    <li><a href="faq.html">Ofte stillede spørgsmål</a></li>
+                </ul>
+            </li>
+            <li><a href="kontakt_info.html">Kontakt</a>
+                <ul class="submenu">
+                    <li><a href="kaffemode.html">Kaffemøde</a></li>
+                    <li><a href="orientering.html">Orienteringsmøde</a></li>
+                </ul>
+            </li>
+            <li><a href="fam_forening.html">Familier & Foreninger</a>
+                <ul class="submenu">
+                    <li><a>Tidligere foreninger</a></li>
+                    <li><a>Udtalelser</a></li>
+                    <li><a>Tidligere benyttelse</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <header id="showcase"></header>
+
 
     <section class="detalje">
         <button id="destination_x">X</button>
@@ -21,6 +93,22 @@
             <img src="" alt="">
         </article>
     </section>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="far fa-arrow-alt-circle-up"></i></button>
+
+    <footer>
+        <p>andet</p>
+        <ul>
+            <li><a>Nyheder</a></li>
+            <li><a>Presse</a></li>
+            <li><a>Cookies og privatlivspolitik</a></li>
+            <li><a>Ofte stillede spørgsmål</a></li>
+
+        </ul>
+
+        <a href="https://www.facebook.com/enogtyvefem"><i class="fab fa-facebook-square fa-3x"></i></a>
+        <a href="https://www.instagram.com/215moments/?hl=da"><i class="fab fa-instagram fa-3x"></i></a>
+
+    </footer>
 
 
     <script>
@@ -57,12 +145,6 @@
             detalje.querySelector("h1").textContent = destination.title.rendered;
             detalje.querySelector("p").innerHTML = destination.content.rendered;
         }
-
-        //function addEventListenersToButtons() {
-        //document.querySelectorAll(".filter").forEach(elm => {
-        //elm.addEventListener("click", filtrering);
-
-        //})
-        //}
     </script>
+    <script src="burger.js"></script>
 </body></html>

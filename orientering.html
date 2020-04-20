@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e1ee2b9569.js" crossorigin="anonymous"></script>
     <title>21-5 - Kontakt og info: Orienteringsmøde</title>
 
 </head>
@@ -17,7 +18,7 @@
     <section id="splash"></section>
     <nav id="navbar">
         <div>
-            <a href="#hjem">
+            <a href="index.html">
                 <img src="logo.svg" alt="logo" id="logo">
             </a>
         </div>
@@ -107,7 +108,7 @@
                 <input type="send" value="send">
             </form>
         </div>
-
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="far fa-arrow-alt-circle-up"></i></button>
     </section>
 
     <footer>
@@ -146,9 +147,6 @@
             document.querySelector("h1").textContent = page.title.rendered;
             document.querySelector("p").innerHTML = page.content.rendered;
         }
-
     </script>
     <script src="burger.js"></script>
-</body>
-
-</html>
+</body></html>
