@@ -80,31 +80,34 @@
     </nav>
 
     <header id="showcase"></header>
-    <div id="overview">
-        <ul class="destinationer">
-            <li><a href="single.html?id=33">Rom</a></li>
-            <li><a href="single.html?id=31">Paris</a></li>
-            <li><a href="single.html?id=30">Barcelona</a></li>
-            <li><a href="single.html?id=29">New York</a></li>
-            <li><a href="single.html?id=28">Chamonix</a></li>
-            <li><a href="single.html?id=26">Sydfrankrig</a></li>
-            <li><a href="single.html?id=24">Toscana</a></li>
-            <li><a href="single.html?id=15">Sydspanien</a></li>
-            <li><a href="single.html?id=13">Mallorca</a></li>
+    <section id="dest_istand">
+        <h1></h1>
+        <div id="overview">
+            <ul class="destinationer">
+                <li><a href="single.html?id=33">Rom</a></li>
+                <li><a href="single.html?id=31">Paris</a></li>
+                <li><a href="single.html?id=30">Barcelona</a></li>
+                <li><a href="single.html?id=29">New York</a></li>
+                <li><a href="single.html?id=28">Chamonix</a></li>
+                <li><a href="single.html?id=26">Sydfrankrig</a></li>
+                <li><a href="single.html?id=24">Toscana</a></li>
+                <li><a href="single.html?id=15">Sydspanien</a></li>
+                <li><a href="single.html?id=13">Mallorca</a></li>
+            </ul>
+        </div>
+        <section class="data-container"></section>
+        <div>
+            <h2 class="istand_title"></h2>
+        </div>
+        <p class="istand_content"></p>
+    </section>
 
 
-        </ul>
-    </div>
 
-    <section class="data-container"></section>
     <template>
-        <article id="destinationer">
-            <h1></h1>
-            <h3></h3>
-            <p></p>
-            <h3></h3>
-            <p></p>
-            <img src="" alt="">
+        <article class="destinationer">
+            <h3 class="sted"></h3>
+            <img class="sted_pic" src="" alt="">
         </article>
     </template>
 
@@ -126,7 +129,9 @@
     </footer>
 
     <script>
-        const endpoint = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/pages/310";
+        const destPageURL = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/pages/524";
+        const istandPageURL = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/pages/310";
+        const postURL = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/destination";
         let destinationer = [];
 
         document.addEventListener("DOMContentLoaded", start);
@@ -139,9 +144,18 @@
 
         /* json hentes her */
         async function hentJSON() {
-            const response = await fetch(endpoint);
-            destinationer = await response.json();
+            const responseDest = await fetch(destPageURL);
+            const responseIstand = await fetch(istandPageURL);
+            const responsePost = await fetch(postURL);
+
+            /* json info defineres */
+            topContent = await responseDest.json();
+            bottomContent = await responseIstand.json();
+            destinationer = await responsePost.json();
+
             visDest();
+            visTop();
+            visBottom();
         }
 
 
@@ -156,18 +170,25 @@
 
                 let klon = destTemplate.cloneNode(true).content;
 
-                klon.querySelector("h1").textContent = destination.title.rendered;
-                klon.querySelector("p").innerHTML = destination.content.rendered;
+                klon.querySelector(".sted").textContent = destination.overskrift;
+                klon.querySelector(".sted_pic").src = destination.billede.guid;
 
                 /* eventlistener som går til ny side ved klik på enkel destination */
-                klon.querySelector("#destination").addEventListener("click", () => {
+                klon.querySelector(".destinationer").addEventListener("click", () => {
                     location.href = `single.html?id=${destination.id}`;
                 });
 
                 container.appendChild(klon)
-
             })
+        }
 
+        function visTop() {
+            document.querySelector("h1").textContent = topContent.title.rendered;
+        }
+
+        function visBottom() {
+            document.querySelector(".istand_title").innerHTML = bottomContent.title.rendered;
+            document.querySelector(".istand_content").innerHTML = bottomContent.content.rendered;
         }
     </script>
     <script src="burger.js"></script>
