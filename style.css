@@ -18,7 +18,6 @@ section {
     max-width: 1300px;
 }
 
-
 #main_nav {
 
     display: none;
@@ -170,7 +169,7 @@ img {
 #showcase .iframe_container {
     position: relative;
     width: 100%;
-    padding-top: 4em;
+    padding-top: 1em;
     height: 0;
     padding-bottom: 56.25%;
 }
@@ -364,20 +363,9 @@ footer i {
     }
 
     #myBtn {
-        position: fixed;
-        bottom: 20px;
-        left: 1300px;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 5px;
-        font-size: 2em;
-        background-color: #fff;
-        opacity: 0.7;
-        border-radius: 5px;
+        left: 1550px;
+        font-size: 3.5em;
     }
-
-
 
     #myBtn:hover {
         background-color: white;
@@ -439,7 +427,7 @@ footer i {
 
     .p_forside {
         font-size: 1.5em;
-        max-width: 1400px;
+        max-width: 1300px;
         margin: 0 auto;
     }
 
@@ -448,13 +436,6 @@ footer i {
         display: grid;
     }
 
-    #kontakt_info {
-        margin: 45px;
-    }
-
-    #orientering {
-        margin: 45px;
-    }
 
 }
 

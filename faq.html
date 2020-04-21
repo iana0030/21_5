@@ -15,7 +15,8 @@
         .kat {
             cursor: pointer;
             font-family: 'Playfair Display', serif;
-            font-size: 1.5em;color: #798C35;
+            font-size: 1.5em;
+            color: #798C35;
             transition: 0.4s;
         }
 
@@ -38,7 +39,7 @@
         }
 
         .questions {
-            border-bottom: 1px solid #3E3F40;
+            border-top: 1px solid #3E3F40;
             cursor: pointer;
             transition: 0.4s;
         }
@@ -108,7 +109,19 @@
             #faq {
                 max-width: 1300px;
                 margin: 0 auto;
-                padding: 0 2em;
+                padding: 0 2em 120px 2em;
+            }
+
+            .questions {
+                padding: 0.5em;
+            }
+
+            summary {
+                font-size: 1.2em;
+            }
+
+            #kategorier {
+                margin: 3em 0;
             }
         }
     </style>
@@ -210,30 +223,31 @@
         </div>
 
         <p class="side_indhold"></p>
+        <div id="kategorier">
+            <details class="kat">
+                <summary>21-5 generelle spørgsmål</summary>
+                <div id="generel" data-kat="21-5 generelle spørgsmål"></div>
+            </details>
+            <details class="kat">
+                <summary>21-5 feriebolig-del</summary>
+                <div id="ferie_bolig" data-kat="21-5 feriebolig-del"></div>
+            </details>
+            <details class="kat">
+                <summary>21-5, jura og teknik</summary>
+                <div id="jura_tek" data-kat="21-5, jura og teknik"></div>
+            </details>
+            <details class="kat">
+                <summary>21-5 boligerne</summary>
+                <div id="boligerne" data-kat="21-5 boligerne"></div>
+            </details>
+            <details class="kat">
+                <summary>21-5 driften og hverdagen</summary>
+                <div id="drift" data-kat="21-5 driften og hverdagen"></div>
+            </details>
+        </div>
+
     </section>
 
-    <div id="kategorier">
-        <details class="kat">
-            <summary>21-5 generelle spørgsmål</summary>
-            <div id="generel" data-kat="21-5 generelle spørgsmål"></div>
-        </details>
-        <details class="kat">
-            <summary>21-5 feriebolig-del</summary>
-            <div id="ferie_bolig" data-kat="21-5 feriebolig-del"></div>
-        </details>
-        <details class="kat">
-            <summary>21-5, jura og teknik</summary>
-            <div id="jura_tek" data-kat="21-5, jura og teknik"></div>
-        </details>
-        <details class="kat">
-            <summary>21-5 boligerne</summary>
-            <div id="boligerne" data-kat="21-5 boligerne"></div>
-        </details>
-        <details class="kat">
-            <summary>21-5 driften og hverdagen</summary>
-            <div id="drift" data-kat="21-5 driften og hverdagen"></div>
-        </details>
-    </div>
 
 
 

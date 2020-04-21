@@ -21,12 +21,16 @@
             cursor: pointer;
         }
 
-        #navn {
+        .navn {
             text-align: center;
         }
 
+        .personer {
+            margin: 1em;
+        }
+
         @media screen and (min-width:750px) {
-            #personer img {
+            .personer img {
                 width: 100%;
                 height: 450px;
                 object-fit: cover;
@@ -41,7 +45,7 @@
                 justify-items: center;
             }
 
-            #personer {
+            .personer {
                 width: 450px;
             }
 
@@ -154,14 +158,14 @@
 
 
     <template>
-        <article id="personer">
-            <h3 id="navn"></h3>
+        <article class="personer">
+            <h3 class="navn"></h3>
             <img src="" alt="">
-            <p id="pos"></p>
-            <p id="email"></p>
+            <p class="pos"></p>
+            <p class="email"></p>
             <details>
-                <summary id="info"></summary>
-                <p id="content"></p>
+                <summary class="info"></summary>
+                <p class="content"></p>
             </details>
         </article>
     </template>
@@ -220,13 +224,13 @@
 
                 let klon = personTemplate.cloneNode(true).content;
 
-                klon.querySelector("#navn").textContent = person.navn;
+                klon.querySelector(".navn").textContent = person.navn;
                 klon.querySelector("img").src = person.person_img.guid;
                 //   klon.querySelector("#pos").textContent = person.position;
-                klon.querySelector("#email").innerHTML = person.email;
-                klon.querySelector("#info").textContent = person.info + person.position;
-                klon.querySelector("#content").innerHTML = person.content.rendered;
-                klon.querySelector("#personer").addEventListener("click", () => {
+                klon.querySelector(".email").innerHTML = person.email;
+                klon.querySelector(".info").textContent = person.info + person.position;
+                klon.querySelector(".content").innerHTML = person.content.rendered;
+                klon.querySelector(".personer").addEventListener("click", () => {
                     // location.href = `single.html?id=${person.id}`;
                 });
                 container.appendChild(klon)
