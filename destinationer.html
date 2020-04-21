@@ -9,7 +9,22 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e1ee2b9569.js" crossorigin="anonymous"></script>
     <title>21-5 - Destinationer</title>
+    <style>
+        #dest_istand .data-container {
+            margin: 0 auto;
+            padding: 2em;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            cursor: pointer;
+            grid-gap: 3em;
+            ;
+        }
 
+        #dest_istand .data-container img:hover {
+            transform: scale(1.02);
+            transition: .8s;
+        }
+    </style>
 
 
 </head>
@@ -39,22 +54,32 @@
     </nav>
 
     <nav id="main_nav">
+
         <ul>
+            <div>
+                <a href="index.html">
+                    <img src="logo.svg" alt="logo" id="logo">
+                </a>
+            </div>
             <li><a href="index.html">Forside</a></li>
-            <li><a href="omkostninger.html">Omkostninger</a>
+            <li><a href="#">Priser</a>
                 <ul class="submenu">
-                    <li><a href="pris_family.html">Family Pris</a></li>
-                    <li><a href="pris_grande.html">Grande Pris</a></li>
-                    <li><a href="pris_large.html">Large Pris</a></li>
+                    <li><a href=omkostninger.html> Alle priser</a></li>
+                    <li><a href="pris_family.html"> Mere om Family priser</a></li>
+                    <li><a href="pris_grande.html">Mere om Grande priser</a></li>
+                    <li><a href="pris_large.html">Priser på Large </a></li>
                     <li><a href="gensalg.html">Gensalg af foreninger</a></li>
                     <li><a href="skat_jura_finans.html">Skat og Jura</a></li>
                     <li><a href="investering.html">Investering</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="destinationer.html">Destinationer</a>
-            <li><a href="omos.html">Om os</a>
+            <li><a href="destinationer.html">Destinationer</a>
+
+            </li>
+
+            <li><a href="#">Om</a>
                 <ul class="submenu">
+                    <li><a href="omos.html">Om os</a></li>
                     <li><a href="hvem_er_vi.html">Hvem er vi?</a></li>
                     <li><a href="hvorfor.html">Hvorfor 21-5?</a></li>
                     <li><a href="hvordan.html">Hvordan fungerer det?</a></li>
@@ -63,14 +88,16 @@
                     <li><a href="faq.html">Ofte stillede spørgsmål</a></li>
                 </ul>
             </li>
-            <li><a href="kontakt_info.html">Kontakt</a>
+            <li><a href="#">Kontakt</a>
                 <ul class="submenu">
+                    <li><a href="kontakt_info.html">Kontakt os</a></li>
                     <li><a href="kaffemode.html">Kaffemøde</a></li>
                     <li><a href="orientering.html">Orienteringsmøde</a></li>
                 </ul>
             </li>
-            <li><a href="fam_forening.html">Familier & Foreninger</a>
+            <li><a href="#">Familier & Foreninger</a>
                 <ul class="submenu">
+                    <li><a href="fam_forening.html">Om familier og foreninger</a></li>
                     <li><a>Tidligere foreninger</a></li>
                     <li><a>Udtalelser</a></li>
                     <li><a>Tidligere benyttelse</a></li>
