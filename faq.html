@@ -12,28 +12,45 @@
     <title>21-5 - Ofte stillede spørgsmål</title>
 
     <style>
-        article {
-            margin: 1em;
+        .kat {
+            cursor: pointer;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            color: #A2B481;
+            transition: 0.4s;
+        }
+
+        summary::-webkit-details-marker {
+            margin-right: 0.5em;
+            transition: 1s;
+        }
+
+        summary {
+            padding: 0.5em;
             border-top: 1px solid #3E3F40;
         }
 
-        .answers p {
-            margin: 1.5em 3em;
+        .kat:last-child summary {
+            border-bottom: 1px solid #3E3F40;
         }
 
-        .sub-accordion {
-            //   background-color: #f0f0f0;
+        #kategorier {
+            margin: 1em 0;
+        }
+
+        .questions {
+            border-bottom: 1px solid #3E3F40;
             cursor: pointer;
             transition: 0.4s;
-            padding: 0 0.5em;
         }
 
-
-        .sub-accordion:hover {
-            // background-color: #ccc;
+        .questions h3 {
+            font-size: 0.7em;
+            font-family: 'Open Sans', sans-serif;
+            margin: 0.3em;
         }
 
-        .sub-accordion h3:hover {
+        .questions h3:hover {
             color: rgba(25, 25, 26, 0.65);
             transition: 0.4s;
         }
@@ -41,11 +58,50 @@
         .panel {
             display: none;
             overflow: hidden;
+            transition: 0.4s;
+            padding: 0 1em;
+            cursor: auto;
         }
 
         .active {
             display: block;
             transition: 0.4s;
+        }
+
+        details[open] div {
+            animation-name: slideDown;
+            animation-duration: 0.4s;
+            animation-fill-mode: forwards;
+        }
+
+        details[open] div article {
+            animation-name: fadeIn;
+            animation-duration: 0.8s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                padding: 0;
+                margin: 0;
+            }
+
+            to {
+                opacity: 1;
+                padding: 0 0.5em;
+                margin: 0.5em;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
 
@@ -55,11 +111,6 @@
                 margin: 0 auto;
                 padding: 0 2em;
             }
-
-
-
-
-
         }
     </style>
 
@@ -151,7 +202,30 @@
         <p class="side_indhold"></p>
     </section>
 
-    <div class="kat" data-kat="21-5 generelle spørgsmål"></div>
+    <div id="kategorier">
+        <details class="kat">
+            <summary>21-5 generelle spørgsmål</summary>
+            <div id="generel" data-kat="21-5 generelle spørgsmål"></div>
+        </details>
+        <details class="kat">
+            <summary>21-5 feriebolig-del</summary>
+            <div id="ferie_bolig" data-kat="21-5 feriebolig-del"></div>
+        </details>
+        <details class="kat">
+            <summary>21-5, jura og teknik</summary>
+            <div id="jura_tek" data-kat="21-5, jura og teknik"></div>
+        </details>
+        <details class="kat">
+            <summary>21-5 boligerne</summary>
+            <div id="boligerne" data-kat="21-5 boligerne"></div>
+        </details>
+        <details class="kat">
+            <summary>21-5 driften og hverdagen</summary>
+            <div id="drift" data-kat="21-5 driften og hverdagen"></div>
+        </details>
+    </div>
+
+
 
     <template>
         <article class="sub-accordion questions">
@@ -219,12 +293,28 @@
 
                 klon.querySelector(".spgsml").innerHTML = question.sprgsml;
                 klon.querySelector(".svar").textContent = question.svar;
-                // klon.querySelector(".kat").innerHTML = question.kategori;
-                container.appendChild(klon)
+                klon.querySelector(".questions").addEventListener("click", visSvar);
+
+                if (question.kategori == "21-5 generelle spørgsmål") {
+                    document.querySelector("#generel").appendChild(klon);
+                }
+                if (question.kategori == "21-5 feriebolig-del") {
+                    document.querySelector("#ferie_bolig").appendChild(klon);
+                }
+                if (question.kategori == "21-5, jura og teknik") {
+                    document.querySelector("#jura_tek").appendChild(klon);
+                }
+                if (question.kategori == "21-5 boligerne") {
+                    document.querySelector("#boligerne").appendChild(klon);
+                }
+                if (question.kategori == "21-5 driften og hverdagen") {
+                    document.querySelector("#drift").appendChild(klon);
+                }
+
             })
 
 
-            document.querySelector(".questions").addEventListener("click", visSvar);
+
         }
 
 
