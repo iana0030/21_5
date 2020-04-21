@@ -443,9 +443,8 @@ footer i {
     }
 
 
-
     #dest_istand .data-container {
-        display: block;
+        display: grid;
     }
 
     #kontakt_info {
