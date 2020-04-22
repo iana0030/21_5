@@ -40,7 +40,7 @@ img {
     position: fixed;
     width: 100%;
     top: 0;
-    background: #F2BE5C;
+    background: #6186A5;
     color: #fff;
     z-index: 1;
     padding: 0.6em;
@@ -80,7 +80,7 @@ img {
     right: 0px;
     height: 70vh;
     top: 10vh;
-    background-color: #F2BE5C;
+    background-color: #6186A5;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -128,14 +128,14 @@ img {
 
 .btn_container #se_priser a {
     text-decoration: none;
-    color: #798C35;
+    color: #6B7036;
     font-size: 2em;
-    border: 2px solid #798C35;
+    border: 2px solid #6B7036;
     padding: 0.3em;
 }
 
 #input_btn {
-    background-color: #798C35;
+    background-color: #7D8315;
 }
 
 #myBtn {
@@ -182,9 +182,9 @@ img {
 }
 
 h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 2.4em;
-    color: #798C35;
+    color: #EBA456;
     margin-top: 4em;
     padding: 0;
     text-align: center;
@@ -195,9 +195,9 @@ h1 {
 }
 
 h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 2em;
-    color: #798C35;
+    color: #EBA456;
     margin: 1em;
     line-height: 1.5em;
     margin-left: 15px;
@@ -205,9 +205,9 @@ h2 {
 
 h3,
 h4 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 1.7em;
-    color: #798C35;
+    color: #EBA456;
     margin-left: 15px;
     margin-bottom: 0.5em;
 }
@@ -237,7 +237,7 @@ iframe {
 }
 
 footer {
-    background-color: #F2BE5C;
+    background-color: #6186A5;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -277,10 +277,10 @@ footer i {
 
 #overview ul li a {
     text-decoration: none;
-    color: #798C35;
+    color: #7D8315;
     padding: 0.4em;
     margin: 0;
-    border: 1px solid #798C35;
+    border: 1px solid #7D8315;
 
 }
 
@@ -324,10 +324,10 @@ footer i {
     #main_nav a {
         color: #fff;
         font-size: 1.2em;
-        background-color: #F2BE5C;
+        background-color: #6186A5;
         display: block;
         height: 65px;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Raleway', sans-serif;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -338,7 +338,7 @@ footer i {
     }
 
     #main_nav a:hover {
-        background-color: #F2C48D;
+        background-color: #83c5f5;
         transition: 0.4s;
         z-index: 2;
     }
@@ -374,8 +374,8 @@ footer i {
     }
 
     .btn_container #se_priser a:hover {
-        color: #A2B481;
-        border: 2px solid #A2B481;
+        color: #bcc435;
+        border: 2px solid #bcc435;
         transition: .8s;
     }
 
@@ -401,16 +401,18 @@ footer i {
 
     h1 {
         margin-top: 1.5em;
-        font-size: 3em;
+        font-size: 4em;
     }
+
 
 
     h2 {
-        font-size: 1.3em;
+        font-size: 2em;
+        text-align: center;
     }
 
     h3 {
-        font-size: 20px;
+        font-size: 1.5em;
     }
 
     /*--------------- Video ------------*/
@@ -418,7 +420,7 @@ footer i {
         padding-top: 4em;
         margin: 0 auto;
         max-width: 1400px;
-        padding-bottom: 40%;
+        padding-bottom: 42%;
     }
 
     .iframe_container iframe {
@@ -437,167 +439,208 @@ footer i {
     }
 
 
-}
-
-
-
-
-/***** KONTAKT ******/
-
-#kontakt_info p {
-    font-size: 15px;
-}
-
-.contact_form {
-    background-color: #3E3F40;
-    padding: 20px;
-    font-family: 'Open Sans', sans-serif;
-    color: white;
-    font-size: 17px;
-    margin: 45px;
-}
-
-input[type=text],
-select,
-textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-
-}
-
-input[type=send] {
-    background-color: #F25A38;
-    color: white;
-    padding: 10px 5px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-
-}
-
-#kommentar {
-    font-family: 'Open Sans', sans-serif;
-}
-
-.googlemaps {
-    margin: 2em 0;
-}
-
-
-/****** KONTAKT SLUT ********/
-
-
-
-
-
-
-
-
-
-
-
-
-/***** ORIENTERINGSMØDE ******/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/***** ORIENTERINGSMØDE SLUT******/
-
-
-
-
-/***** FAMILIER OG FORENINGER *****/
-
-
-
-
-
-/***** FAMILIER OG FORENINGER SLUT *****/
-
-
-
-
-/****** TIDLIGERE FORENINGER ******/
-
-
-
-/****** TIDLIGERE FORENINGER SLUT ******/
-
-
-
-
-
-/****** TIDLIGERE BENYTTELSE ********/
-
-
-
-
-
-
-
-/****** TIDLIGERE BENYTTELSE SLUT ******/
-
-
-
-
-
-
-
-
-
-/*----------Animationer-----------------*/
-
-
-.drop {
-    animation-name: drop_kf;
-    animation-duration: 0.6s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in;
-}
-
-@keyframes drop_kf {
-    from {
-        transform: translateY(-150vw);
+    /*----------------Destinationer----------*/
+    .wp-block-columns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 0;
+        padding: 0;
     }
 
-    to {
-        transform: translateY(-3vw);
+    .wp-block-columns h2 {
+        margin: 0;
+        padding: 0;
+        margin-top: 1em;
+        font-size: 3em;
+        align-self: flex-start;
     }
-}
+
+    .wp-block-columns p {
+        line-height: 2em;
+    }
+
+    .istand_content img {
+        width: 500px;
+        margin-top: 4em;
+    }
+
+    .has-text-align-center {
+        text-align: center;
+    }
+
+    .has-text-align-right {
+        text-align: left;
+        margin-right: 3em;
+        margin-top: 2em;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /***** KONTAKT ******/
+
+    #kontakt_info p {
+        font-size: 15px;
+    }
+
+    .contact_form {
+        background-color: #3E3F40;
+        padding: 20px;
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        font-size: 17px;
+        margin: 45px;
+    }
+
+    input[type=text],
+    select,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+
+    }
+
+    input[type=send] {
+        background-color: #F25A38;
+        color: white;
+        padding: 10px 5px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+
+    }
+
+    #kommentar {
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    .googlemaps {
+        margin: 2em 0;
+    }
+
+
+    /****** KONTAKT SLUT ********/
+
+
+
+
+
+
+
+
+
+
+
+
+    /***** ORIENTERINGSMØDE ******/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /***** ORIENTERINGSMØDE SLUT******/
+
+
+
+
+    /***** FAMILIER OG FORENINGER *****/
+
+
+
+
+
+    /***** FAMILIER OG FORENINGER SLUT *****/
+
+
+
+
+    /****** TIDLIGERE FORENINGER ******/
+
+
+
+    /****** TIDLIGERE FORENINGER SLUT ******/
+
+
+
+
+
+    /****** TIDLIGERE BENYTTELSE ********/
+
+
+
+
+
+
+
+    /****** TIDLIGERE BENYTTELSE SLUT ******/
+
+
+
+
+
+
+
+
+
+    /*----------Animationer-----------------*/
+
+
+    .drop {
+        animation-name: drop_kf;
+        animation-duration: 0.6s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+    }
+
+    @keyframes drop_kf {
+        from {
+            transform: translateY(-150vw);
+        }
+
+        to {
+            transform: translateY(-3vw);
+        }
+    }
