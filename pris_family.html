@@ -109,6 +109,30 @@
         <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="far fa-arrow-alt-circle-up"></i></button>
     </section>
 
+    <section class="carousel_section">
+        <h2 class="carousel_title"></h2>
+        <p class="carousel_content"></p>
+        <div class="carousel">
+            <div class="carousel_inner">
+                <div class="bwd">
+                    <p>&#9204;</p>
+                </div>
+                <div class="the_container"></div>
+                <div class="fwd">
+                    <p>&#9205;</p>
+                </div>
+            </div>
+            <div class="preview_pics_container"></div>
+        </div>
+    </section>
+
+    <template>
+        <section>
+            <img class="car_imgs" src="" alt="">
+        </section>
+    </template>
+
+
     <footer>
         <ul>
             <li><a>Nyheder</a></li>
@@ -125,7 +149,11 @@
 
 
     <script>
-        /* indhentning af investering page */
+        const familyPics = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/bolig/751";
+        const theContainer = document.querySelector(".the_container");
+        let numberOfPicsInCarousel;
+        let carouCurrentNum = 0;
+        /* indhentning af family page */
         const endpoint = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/pages/62";
 
         document.addEventListener("DOMContentLoaded", start);
@@ -136,6 +164,13 @@
             const response = await fetch(endpoint);
             const json = await response.json();
             vis(json);
+
+            const familyPicResponse = await fetch(familyPics);
+            familyPicsJSON = await familyPicResponse.json();
+            buildCarousel();
+
+            document.querySelector(".fwd").addEventListener("click", fwd);
+            document.querySelector(".bwd").addEventListener("click", bwd);
         }
 
         /* indhentning af json her*/
@@ -144,6 +179,95 @@
             document.querySelector("h1").textContent = page.title.rendered;
             document.querySelector("p").innerHTML = page.content.rendered;
         }
+
+
+        /* HERFRA OG NED ER GALLERY RELATED */
+        function buildCarousel() {
+            numberOfPicsInCarousel = familyPicsJSON.bolig_img.length;
+
+            familyPicsJSON.bolig_img.forEach((bolig_img, index) => {
+                const theClone = document.querySelector("template").cloneNode(true).content;
+                const secondClone = document.querySelector("template").cloneNode(true).content;
+
+                theClone.querySelector("img").src = bolig_img.guid;
+                secondClone.querySelector("img").src = bolig_img.guid;
+                secondClone.querySelector("section").dataset.myIndex = index;
+
+
+                document.querySelector(".carousel_title").innerHTML = familyPicsJSON.title.rendered;
+                document.querySelector(".carousel_content").innerHTML = familyPicsJSON.content.rendered;
+
+                theContainer.appendChild(theClone);
+                document.querySelector(".preview_pics_container").appendChild(secondClone);
+
+            })
+
+
+            document.querySelector(".preview_pics_container section").classList.add("preview_selected");
+
+            theContainer.addEventListener("scroll", scrollFunc);
+            document.querySelectorAll(".preview_pics_container section").forEach(each => {
+                each.addEventListener("click", previewClick);
+            })
+        }
+
+        function scrollFunc() {
+            document.querySelectorAll(".preview_pics_container section").forEach(each => {
+                each.classList.remove("preview_selected")
+            })
+            carouCurrentNum = Math.round(theContainer.scrollLeft / document.querySelector(".car_imgs").width);
+            document.querySelector(`.preview_pics_container section:nth-child(${carouCurrentNum+1})`).classList.add("preview_selected");
+            setBtns();
+        }
+
+        function previewClick(evt) {
+            carouCurrentNum = evt.currentTarget.dataset.myIndex;
+            navigate();
+        }
+
+        function fwd() {
+            if (carouCurrentNum < numberOfPicsInCarousel - 1) {
+                carouCurrentNum++;
+                navigate();
+            }
+        }
+
+        function bwd() {
+            if (carouCurrentNum > 0) {
+                carouCurrentNum--;
+                navigate();
+            }
+        }
+
+        function navigate() {
+            theContainer.scrollTo({
+                left: carouCurrentNum * document.querySelector(".car_imgs").width,
+                behavior: "smooth"
+            })
+            setBtns();
+        }
+
+        function setBtns() {
+            if (carouCurrentNum < numberOfPicsInCarousel - 1) {
+                document.querySelector(".fwd").style.opacity = 1;
+                document.querySelector(".fwd").style.cursor = "pointer";
+            } else {
+                document.querySelector(".fwd").style.opacity = 0.3;
+                document.querySelector(".fwd").style.cursor = "default";
+            }
+            if (carouCurrentNum > 0) {
+                document.querySelector(".bwd").style.opacity = 1;
+                document.querySelector(".bwd").style.cursor = "pointer";
+
+            } else {
+                document.querySelector(".bwd").style.opacity = 0.3;
+                document.querySelector(".bwd").style.cursor = "default";
+            }
+
+        }
+
     </script>
     <script src="burger.js"></script>
-</body></html>
+</body>
+
+</html>
