@@ -104,6 +104,30 @@
     </section>
     <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="far fa-arrow-alt-circle-up"></i></button>
 
+    <section class="carousel_section">
+        <h2 class="carousel_title"></h2>
+        <p class="carousel_content"></p>
+        <div class="carousel">
+            <div class="carousel_inner">
+                <div class="bwd">
+                    <p>&#9204;</p>
+                </div>
+                <div class="the_container"></div>
+                <div class="fwd">
+                    <p>&#9205;</p>
+                </div>
+            </div>
+            <div class="preview_pics_container"></div>
+        </div>
+    </section>
+
+    <template>
+        <section>
+            <img class="car_imgs" src="" alt="">
+        </section>
+    </template>
+
+
     <footer>
         <ul>
             <li><a>Nyheder</a></li>
@@ -120,6 +144,16 @@
 
 
     <script>
+        const parisPics = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/bolig/727";
+        const mallorcaPics = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/bolig/539";
+        const barcelonaPics = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/bolig/622";
+        const chamonixPics = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/bolig/645";
+        const sydfrankrigPics = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/bolig/659";
+        const toscanaPics = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/bolig/687";
+        const sydspanienPics = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/bolig/841";
+        const theContainer = document.querySelector(".the_container");
+        let numberOfPicsInCarousel;
+        let carouCurrentNum = 0;
         //Går op og får URL'en
         const Urlparameter = new URLSearchParams(window.location.search);
 
@@ -133,6 +167,9 @@
 
         function start() {
             hentData();
+
+            document.querySelector(".fwd").addEventListener("click", fwd);
+            document.querySelector(".bwd").addEventListener("click", bwd);
         }
 
         async function hentData() {
@@ -141,6 +178,22 @@
             destination = await jsonData.json();
 
             visDestination();
+
+            const parisResponse = await fetch(parisPics);
+            parisJSON = await parisResponse.json();
+            const mallorcaResponse = await fetch(mallorcaPics);
+            mallorcaJSON = await mallorcaResponse.json();
+            const barcelonaResponse = await fetch(barcelonaPics);
+            barcelonaJSON = await barcelonaResponse.json();
+            const chamonixResponse = await fetch(chamonixPics);
+            chamonixJSON = await chamonixResponse.json();
+            const sydfrankrigResponse = await fetch(sydfrankrigPics);
+            sydfrankrigJSON = await sydfrankrigResponse.json();
+            const toscanaResponse = await fetch(toscanaPics);
+            toscanaJSON = await toscanaResponse.json();
+            const sydspanienResponse = await fetch(sydspanienPics);
+            sydspanienJSON = await sydspanienResponse.json();
+            buildCarousel();
         }
 
         //sammenligner med det ID vi har fået tilsendt oppe i URL'en
@@ -153,6 +206,273 @@
             detalje.querySelector("h1").textContent = destination.title.rendered;
             detalje.querySelector("p").innerHTML = destination.content.rendered;
         }
+
+
+        /* HERFRA OG NED ER GALLERY RELATED */
+        function buildCarousel() {
+
+            if (id == 31) {
+                numberOfPicsInCarousel = parisJSON.bolig_img.length;
+
+                parisJSON.bolig_img.forEach((bolig_img, index) => {
+                    const theClone = document.querySelector("template").cloneNode(true).content;
+                    const secondClone = document.querySelector("template").cloneNode(true).content;
+
+                    theClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("section").dataset.myIndex = index;
+
+                    document.querySelector(".carousel_title").innerHTML = parisJSON.title.rendered;
+                    document.querySelector(".carousel_content").innerHTML = parisJSON.content.rendered;
+
+                    theContainer.appendChild(theClone);
+                    document.querySelector(".preview_pics_container").appendChild(secondClone);
+                })
+
+
+                document.querySelector(".fwd p").style.display = "block";
+                document.querySelector(".bwd p").style.display = "block";
+
+                document.querySelector(".preview_pics_container section").classList.add("preview_selected");
+
+                theContainer.addEventListener("scroll", scrollFunc);
+                document.querySelectorAll(".preview_pics_container section").forEach(each => {
+                    each.addEventListener("click", previewClick);
+                })
+            }
+
+            if (id == 13) {
+                numberOfPicsInCarousel = mallorcaJSON.bolig_img.length;
+
+                mallorcaJSON.bolig_img.forEach((bolig_img, index) => {
+                    const theClone = document.querySelector("template").cloneNode(true).content;
+                    const secondClone = document.querySelector("template").cloneNode(true).content;
+
+                    theClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("section").dataset.myIndex = index;
+
+                    document.querySelector(".carousel_title").innerHTML = mallorcaJSON.title.rendered;
+                    document.querySelector(".carousel_content").innerHTML = mallorcaJSON.content.rendered;
+
+                    theContainer.appendChild(theClone);
+                    document.querySelector(".preview_pics_container").appendChild(secondClone);
+                })
+
+                document.querySelector(".fwd p").style.display = "block";
+                document.querySelector(".bwd p").style.display = "block";
+
+                document.querySelector(".preview_pics_container section").classList.add("preview_selected");
+
+                theContainer.addEventListener("scroll", scrollFunc);
+                document.querySelectorAll(".preview_pics_container section").forEach(each => {
+                    each.addEventListener("click", previewClick);
+                })
+            }
+
+            if (id == 30) {
+                numberOfPicsInCarousel = barcelonaJSON.bolig_img.length;
+
+                barcelonaJSON.bolig_img.forEach((bolig_img, index) => {
+                    const theClone = document.querySelector("template").cloneNode(true).content;
+                    const secondClone = document.querySelector("template").cloneNode(true).content;
+
+                    theClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("section").dataset.myIndex = index;
+
+                    document.querySelector(".carousel_title").innerHTML = barcelonaJSON.title.rendered;
+                    document.querySelector(".carousel_content").innerHTML = barcelonaJSON.content.rendered;
+
+                    theContainer.appendChild(theClone);
+                    document.querySelector(".preview_pics_container").appendChild(secondClone);
+                })
+
+                document.querySelector(".fwd p").style.display = "block";
+                document.querySelector(".bwd p").style.display = "block";
+
+                document.querySelector(".preview_pics_container section").classList.add("preview_selected");
+
+                theContainer.addEventListener("scroll", scrollFunc);
+                document.querySelectorAll(".preview_pics_container section").forEach(each => {
+                    each.addEventListener("click", previewClick);
+                })
+            }
+
+            if (id == 28) {
+                numberOfPicsInCarousel = chamonixJSON.bolig_img.length;
+
+                chamonixJSON.bolig_img.forEach((bolig_img, index) => {
+                    const theClone = document.querySelector("template").cloneNode(true).content;
+                    const secondClone = document.querySelector("template").cloneNode(true).content;
+
+                    theClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("section").dataset.myIndex = index;
+
+                    document.querySelector(".carousel_title").innerHTML = chamonixJSON.title.rendered;
+                    document.querySelector(".carousel_content").innerHTML = chamonixJSON.content.rendered;
+
+                    theContainer.appendChild(theClone);
+                    document.querySelector(".preview_pics_container").appendChild(secondClone);
+                })
+
+                document.querySelector(".fwd p").style.display = "block";
+                document.querySelector(".bwd p").style.display = "block";
+
+                document.querySelector(".preview_pics_container section").classList.add("preview_selected");
+
+                theContainer.addEventListener("scroll", scrollFunc);
+                document.querySelectorAll(".preview_pics_container section").forEach(each => {
+                    each.addEventListener("click", previewClick);
+                })
+            }
+
+            if (id == 26) {
+                numberOfPicsInCarousel = sydfrankrigJSON.bolig_img.length;
+
+                sydfrankrigJSON.bolig_img.forEach((bolig_img, index) => {
+                    const theClone = document.querySelector("template").cloneNode(true).content;
+                    const secondClone = document.querySelector("template").cloneNode(true).content;
+
+                    theClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("section").dataset.myIndex = index;
+
+                    document.querySelector(".carousel_title").innerHTML = sydfrankrigJSON.title.rendered;
+                    document.querySelector(".carousel_content").innerHTML = sydfrankrigJSON.content.rendered;
+
+                    theContainer.appendChild(theClone);
+                    document.querySelector(".preview_pics_container").appendChild(secondClone);
+                })
+
+                document.querySelector(".fwd p").style.display = "block";
+                document.querySelector(".bwd p").style.display = "block";
+
+                document.querySelector(".preview_pics_container section").classList.add("preview_selected");
+
+                theContainer.addEventListener("scroll", scrollFunc);
+                document.querySelectorAll(".preview_pics_container section").forEach(each => {
+                    each.addEventListener("click", previewClick);
+                })
+            }
+
+            if (id == 24) {
+                numberOfPicsInCarousel = toscanaJSON.bolig_img.length;
+
+                toscanaJSON.bolig_img.forEach((bolig_img, index) => {
+                    const theClone = document.querySelector("template").cloneNode(true).content;
+                    const secondClone = document.querySelector("template").cloneNode(true).content;
+
+                    theClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("section").dataset.myIndex = index;
+
+                    document.querySelector(".carousel_title").innerHTML = toscanaJSON.title.rendered;
+                    document.querySelector(".carousel_content").innerHTML = toscanaJSON.content.rendered;
+
+                    theContainer.appendChild(theClone);
+                    document.querySelector(".preview_pics_container").appendChild(secondClone);
+                })
+
+                document.querySelector(".fwd p").style.display = "block";
+                document.querySelector(".bwd p").style.display = "block";
+
+                document.querySelector(".preview_pics_container section").classList.add("preview_selected");
+
+                theContainer.addEventListener("scroll", scrollFunc);
+                document.querySelectorAll(".preview_pics_container section").forEach(each => {
+                    each.addEventListener("click", previewClick);
+                })
+            }
+
+            if (id == 15) {
+                numberOfPicsInCarousel = sydspanienJSON.bolig_img.length;
+
+                sydspanienJSON.bolig_img.forEach((bolig_img, index) => {
+                    const theClone = document.querySelector("template").cloneNode(true).content;
+                    const secondClone = document.querySelector("template").cloneNode(true).content;
+
+                    theClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("section").dataset.myIndex = index;
+
+                    document.querySelector(".carousel_title").innerHTML = sydspanienJSON.title.rendered;
+                    document.querySelector(".carousel_content").innerHTML = sydspanienJSON.content.rendered;
+
+                    theContainer.appendChild(theClone);
+                    document.querySelector(".preview_pics_container").appendChild(secondClone);
+                })
+
+                document.querySelector(".fwd p").style.display = "block";
+                document.querySelector(".bwd p").style.display = "block";
+
+                document.querySelector(".preview_pics_container section").classList.add("preview_selected");
+
+                theContainer.addEventListener("scroll", scrollFunc);
+                document.querySelectorAll(".preview_pics_container section").forEach(each => {
+                    each.addEventListener("click", previewClick);
+                })
+            }
+        }
+
+        function scrollFunc() {
+            document.querySelectorAll(".preview_pics_container section").forEach(each => {
+                each.classList.remove("preview_selected")
+            })
+            carouCurrentNum = Math.round(theContainer.scrollLeft / document.querySelector(".car_imgs").width);
+            document.querySelector(`.preview_pics_container section:nth-child(${carouCurrentNum+1})`).classList.add("preview_selected");
+            setBtns();
+        }
+
+        function previewClick(evt) {
+            carouCurrentNum = evt.currentTarget.dataset.myIndex;
+            navigate();
+        }
+
+        function fwd() {
+            if (carouCurrentNum < numberOfPicsInCarousel - 1) {
+                carouCurrentNum++;
+                navigate();
+            }
+        }
+
+        function bwd() {
+            if (carouCurrentNum > 0) {
+                carouCurrentNum--;
+                navigate();
+            }
+        }
+
+        function navigate() {
+            theContainer.scrollTo({
+                left: carouCurrentNum * document.querySelector(".car_imgs").width,
+                behavior: "smooth"
+            })
+            setBtns();
+        }
+
+        function setBtns() {
+            if (carouCurrentNum < numberOfPicsInCarousel - 1) {
+                document.querySelector(".fwd").style.opacity = 1;
+                document.querySelector(".fwd").style.cursor = "pointer";
+            } else {
+                document.querySelector(".fwd").style.opacity = 0.3;
+                document.querySelector(".fwd").style.cursor = "default";
+            }
+            if (carouCurrentNum > 0) {
+                document.querySelector(".bwd").style.opacity = 1;
+                document.querySelector(".bwd").style.cursor = "pointer";
+
+            } else {
+                document.querySelector(".bwd").style.opacity = 0.3;
+                document.querySelector(".bwd").style.cursor = "default";
+            }
+
+        }
+
     </script>
     <script src="burger.js"></script>
-</body></html>
+</body>
+
+</html>
