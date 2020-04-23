@@ -61,7 +61,7 @@ img {
 
 #navbar ul li a {
     color: #fff;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
     font-family: 'Manrope', sans-serif;
     text-decoration: none;
 }
@@ -91,7 +91,7 @@ img {
 
 .nav_links li {
     padding-top: 0;
-    margin: 2em;
+    margin: 1.5em;
     font-size: 1.2em;
 }
 
@@ -134,9 +134,6 @@ img {
     padding: 0.1em;
 }
 
-#input_btn {
-    background-color: #7D8315;
-}
 
 #myBtn {
     position: fixed;
@@ -209,8 +206,7 @@ h4 {
     font-family: 'Poiret One', cursive;
     font-size: 1.7em;
     color: #d8ab7b;
-    margin-left: 15px;
-    margin-bottom: 0.5em;
+    margin: 0.6em;
 }
 
 p,
@@ -218,9 +214,13 @@ ol,
 ul {
     font-family: 'Open Sans', sans-serif;
     color: #403C38;
-    margin: 0.5em;
-    line-height: 1.5em;
-    font-size: 15px;
+    margin: 0.6em;
+    line-height: 2em;
+    font-size: 1em;
+}
+
+.wp-block-separator {
+    margin: 1em;
 }
 
 img {
@@ -228,6 +228,44 @@ img {
     margin: 0;
     padding: 0;
 }
+
+
+/*--------------------Omkostninger img----------*/
+
+.wp-image-109 {
+    width: 100%;
+    margin-top: 4em;
+}
+
+/*-------------Pris på Large--------------------*/
+.wp-image-122 {
+    width: 100%;
+    margin-top: 0;
+}
+
+/*------------------gensalg---------------*/
+
+.wp-image-130 {
+    display: none;
+}
+
+
+/*------------------Investering---------------*/
+.wp-image-150 {
+    width: 100%;
+    margin-top: 2em;
+}
+
+.wp-image-152 {
+    display: none;
+}
+
+/*--------------------OM OS-------------------*/
+.wp-block-group__inner-container li {
+    margin-left: 1em;
+}
+
+
 
 figure {
     margin: 0;
@@ -281,10 +319,11 @@ footer i {
 
 #overview ul li a {
     text-decoration: none;
-    color: #3f7637;
+    color: #d8ab7b;
     padding: 0em;
     margin: 0;
-    border-bottom: 1px solid #3f7637;
+    border-bottom: 1px solid #d8ab7b;
+    font-size: 1.2em;
 
 }
 
@@ -400,7 +439,7 @@ footer i {
 }
 
 .contact_form {
-    background-color: #3E3F40;
+    background-color: #2d3e4b;
     padding: 20px;
     font-family: 'Open Sans', sans-serif;
     color: white;
@@ -422,7 +461,7 @@ textarea {
 }
 
 input[type=send] {
-    background-color: #F25A38;
+    background-color: #3f7637;
     color: white;
     padding: 10px 5px;
     border: none;
@@ -464,10 +503,10 @@ input[type=send] {
     h1 {
         font-family: 'Poiret One', cursive;
         color: #d8ab7b;
-        margin-bottom: 1em;
+        margin-bottom: 0em;
         padding: 0;
         text-align: center;
-        margin-top: 1.5em;
+        margin-top: 1em;
         font-size: 4em;
     }
 
@@ -497,8 +536,9 @@ input[type=send] {
     p,
     ol,
     ul {
-        line-height: 1.5em;
+        line-height: 2em;
         font-size: 15px;
+        margin: 0.5em
     }
 
     #navbar {
@@ -625,6 +665,18 @@ input[type=send] {
     }
 
 
+    .iframe_container_2 {
+        padding-top: 4em;
+        margin: 0 auto;
+        max-width: 1200px;
+        padding-bottom: 3em;
+    }
+
+    .iframe_container_2 iframe {
+        height: 700px;
+    }
+
+
     /*----------------Destinationer----------*/
     .wp-block-columns {
         display: flex;
@@ -667,16 +719,44 @@ input[type=send] {
         cursor: pointer;
     }
 
+    /*-------------Pris på family-------------*/
+    .wp-block-separator {
+        margin: 3em;
+    }
+
+    .wp-image-111 {
+        width: 600px;
+        margin: 0;
+    }
+
+    .carousel_content p {
+        text-align: center;
+    }
+
+    /*------------Pris på Grande----------------*/
+
+    .wp-image-109 {
+        width: 600px;
+        margin-top: 4em;
+    }
+
+    /*-------------Pris på Large--------------------*/
+    .wp-image-122 {
+        width: 600px;
+        margin-top: 0;
+    }
 
 
+    /*------------------Investering---------------*/
+    .wp-image-150 {
+        width: 600px;
+        margin-top: 5em;
+    }
 
-
-
-
-
-
-
-
+    .wp-block-image {
+        display: flex;
+        justify-content: center;
+    }
 
 
     /****** GALLERIES  ******/
@@ -691,6 +771,14 @@ input[type=send] {
         scroll-snap-type: x mandatory;
         align-items: center;
     }
+
+
+
+
+
+
+
+
 
 
 }
