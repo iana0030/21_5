@@ -357,6 +357,31 @@ footer i {
     margin: 0;
 }
 
+.carousel_section_txt {
+    text-align: center;
+}
+
+.ss_btns {
+    text-align: center;
+    margin: 1em 1em 2em 1em;
+}
+
+.ss_btns button {
+    background-color: transparent;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    text-decoration: none;
+    color: #3f7637;
+    margin: 0.5em 1.5em;
+    border: none;
+    border-bottom: 2px solid #3f7637;
+    padding: 0.1em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    text-align: center;
+}
+
 /*------------------BILLEDKARUSELLER / GALLERIES -------------*/
 
 .carousel {
@@ -419,7 +444,7 @@ footer i {
 .bwd p,
 .fwd p {
     margin: 0.1em;
-    font-size: 2em;
+    font-size: 1em;
     background-color: white;
     opacity: 0.7;
     border-radius: 5px;
@@ -428,8 +453,9 @@ footer i {
     display: none;
 }
 
+
 .fwd p {
-    margin-left: -35px;
+    margin-left: -18px;
 }
 
 /***** KONTAKT ******/
@@ -756,6 +782,7 @@ input[type=send] {
     .wp-block-image {
         display: flex;
         justify-content: center;
+        flex-direction: column;
     }
 
 
@@ -763,6 +790,7 @@ input[type=send] {
 
     .carousel_section {
         width: 60vw;
+        text-align: center;
     }
 
     .the_container {
@@ -772,8 +800,14 @@ input[type=send] {
         align-items: center;
     }
 
+    .bwd p,
+    .fwd p {
+        font-size: 2em;
+    }
 
-
+    .fwd p {
+        margin-left: -35px;
+    }
 
 
 

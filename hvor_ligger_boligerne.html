@@ -22,7 +22,21 @@
                 padding: 0 10em
             }
 
+            #hvor .wp-block-media-text {
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: 1em;
+            }
+
+            #hvor .wp-block-media-text div,
+            #hvor div figure {
+                flex-basis: 350px;
+                flex-grow: 1;
+                margin: 1em 1em 0 0;
+            }
+
         }
+
     </style>
 </head>
 
@@ -159,6 +173,9 @@
             document.querySelector("h1").textContent = page.title.rendered;
             document.querySelector("p").innerHTML = page.content.rendered;
         }
+
     </script>
     <script src="burger.js"></script>
-</body></html>
+</body>
+
+</html>

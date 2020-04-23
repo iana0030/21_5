@@ -24,7 +24,7 @@
             }
 
             #dest_istand .data-container h3 {
-                color: #fff;
+                color: #757575;
             }
 
             #dest_istand h1 {
@@ -37,6 +37,7 @@
                 transition: .8s;
             }
         }
+
     </style>
 
 
@@ -143,15 +144,26 @@
 
 
     <!------------Template for billedekarroussel-------------->
-    <template>
+    <template class="dest_temp">
         <article class="destinationer">
             <h3 class="sted"></h3>
             <img class="sted_pic" src="" alt="">
         </article>
     </template>
 
+    <h2 class="carousel_section_title">Fra skrot til slot</h2>
+    <p class="carousel_section_txt">Her kan I se billeder fra nogle af vores mange ombygninger. Klik på et af landene for at udforske nærmere:</p>
+
+    <div class="ss_btns">
+        <button class="toscana_btn">Toscana</button>
+        <button class="paris_btn">Paris</button>
+        <button class="mallorca_btn">Mallorca</button>
+        <button class="barcelona_btn">Barcelona</button>
+        <button class="chamonix_btn">Chamonix</button>
+    </div>
+
     <section class="carousel_section">
-        <h2 class="carousel_title"></h2>
+        <h3 class="carousel_title"></h3>
         <p class="carousel_content"></p>
         <div class="carousel">
             <div class="carousel_inner">
@@ -167,13 +179,14 @@
         </div>
     </section>
 
-    <template>
+    <template class="carousel_temp">
         <section>
             <img class="car_imgs" src="" alt="">
         </section>
     </template>
 
     <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="far fa-arrow-alt-circle-up"></i></button>
+
 
     <footer>
         <ul>
@@ -190,12 +203,17 @@
     </footer>
 
     <script>
-        //------------Renoveringsbilleder indhold-------
-        const familyPics = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/renovering/1229";
+        //------------renovering_imgsbilleder indhold-------
+        const toscanaPics = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/renovering/1229";
+        const toscanaPics2 = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/renovering/1069";
+        const parisPics = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/renovering/1102";
+        const mallorcaPics = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/renovering/1125";
+        const barcelonaPics = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/renovering/1158";
+        const chamonixPics = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/renovering/1192";
         const theContainer = document.querySelector(".the_container");
+        const theSecondContainer = document.querySelector(".preview_pics_container");
         let numberOfPicsInCarousel;
         let carouCurrentNum = 0;
-
 
 
         const destPageURL = "http://ianachristiansen.dk/21_5/wordpress/wp-json/wp/v2/pages/524";
@@ -209,6 +227,9 @@
         function start() {
             console.log("start");
             hentJSON();
+
+            document.querySelector(".fwd").addEventListener("click", fwd);
+            document.querySelector(".bwd").addEventListener("click", bwd);
         }
 
         /* json hentes her */
@@ -216,12 +237,6 @@
             const responseDest = await fetch(destPageURL);
             const responseIstand = await fetch(istandPageURL);
             const responsePost = await fetch(postURL);
-
-            const familyPicResponse = await fetch(familyPics);
-            familyPicsJSON = await familyPicResponse.json();
-            buildCarousel();
-            document.querySelector(".fwd").addEventListener("click", fwd);
-            document.querySelector(".bwd").addEventListener("click", bwd);
 
             /* json info defineres */
             topContent = await responseDest.json();
@@ -231,17 +246,35 @@
             visDest();
             visTop();
             visBottom();
+
+            const parisResponse = await fetch(parisPics);
+            parisJSON = await parisResponse.json();
+            const mallorcaResponse = await fetch(mallorcaPics);
+            mallorcaJSON = await mallorcaResponse.json();
+            const barcelonaResponse = await fetch(barcelonaPics);
+            barcelonaJSON = await barcelonaResponse.json();
+            const chamonixResponse = await fetch(chamonixPics);
+            chamonixJSON = await chamonixResponse.json();
+            const toscanaResponse = await fetch(toscanaPics);
+            toscanaJSON = await toscanaResponse.json();
+            const toscanaResponse2 = await fetch(toscanaPics2);
+            toscanaJSON2 = await toscanaResponse2.json();
+
+            document.querySelector(".paris_btn").addEventListener("click", buildCarouselParis);
+            document.querySelector(".toscana_btn").addEventListener("click", buildCarouselToscana);
+            document.querySelector(".mallorca_btn").addEventListener("click", buildCarouselMallorca);
+            document.querySelector(".barcelona_btn").addEventListener("click", buildCarouselBarcelona);
+            document.querySelector(".chamonix_btn").addEventListener("click", buildCarouselChamonix);
         }
 
 
         /* funktionen viser hver destination i desktop */
         function visDest() {
             const container = document.querySelector(".data-container");
-            const destTemplate = document.querySelector("template");
+            const destTemplate = document.querySelector(".dest_temp");
 
             /* destinationerne som vises */
             destinationer.forEach(destination => {
-                console.log(destination);
 
                 let klon = destTemplate.cloneNode(true).content;
 
@@ -270,26 +303,29 @@
         }
 
         /* HERFRA OG NED ER GALLERY RELATED */
-        function buildCarousel() {
-            numberOfPicsInCarousel = familyPicsJSON.bolig_img.length;
+        function buildCarouselParis() {
+            numberOfPicsInCarousel = parisJSON.renovering_img.length;
+            theContainer.innerHTML = "";
+            theSecondContainer.innerHTML = "";
 
-            familyPicsJSON.bolig_img.forEach((bolig_img, index) => {
-                const theClone = document.querySelector("template").cloneNode(true).content;
-                const secondClone = document.querySelector("template").cloneNode(true).content;
+            parisJSON.renovering_img.forEach((renovering_img, index) => {
+                const theClone = document.querySelector(".carousel_temp").cloneNode(true).content;
+                const secondClone = document.querySelector(".carousel_temp").cloneNode(true).content;
 
-                theClone.querySelector("img").src = bolig_img.guid;
-                secondClone.querySelector("img").src = bolig_img.guid;
+                theClone.querySelector("img").src = renovering_img.guid;
+                secondClone.querySelector("img").src = renovering_img.guid;
                 secondClone.querySelector("section").dataset.myIndex = index;
 
-
-                document.querySelector(".carousel_title").innerHTML = familyPicsJSON.title.rendered;
-                document.querySelector(".carousel_content").innerHTML = familyPicsJSON.content.rendered;
+                document.querySelector(".carousel_section_title").innerHTML = parisJSON.title.rendered;
+                document.querySelector(".carousel_content").innerHTML = parisJSON.content.rendered;
 
                 theContainer.appendChild(theClone);
-                document.querySelector(".preview_pics_container").appendChild(secondClone);
-
+                theSecondContainer.appendChild(secondClone);
             })
 
+
+            document.querySelector(".fwd p").style.display = "block";
+            document.querySelector(".bwd p").style.display = "block";
 
             document.querySelector(".preview_pics_container section").classList.add("preview_selected");
 
@@ -297,6 +333,133 @@
             document.querySelectorAll(".preview_pics_container section").forEach(each => {
                 each.addEventListener("click", previewClick);
             })
+        }
+
+        function buildCarouselMallorca() {
+            numberOfPicsInCarousel = mallorcaJSON.renovering_img.length;
+            theContainer.innerHTML = "";
+            theSecondContainer.innerHTML = "";
+
+            mallorcaJSON.renovering_img.forEach((renovering_img, index) => {
+                const theClone = document.querySelector(".carousel_temp").cloneNode(true).content;
+                const secondClone = document.querySelector(".carousel_temp").cloneNode(true).content;
+
+                theClone.querySelector("img").src = renovering_img.guid;
+                secondClone.querySelector("img").src = renovering_img.guid;
+                secondClone.querySelector("section").dataset.myIndex = index;
+
+                document.querySelector(".carousel_section_title").innerHTML = mallorcaJSON.title.rendered;
+                document.querySelector(".carousel_content").innerHTML = mallorcaJSON.content.rendered;
+
+                theContainer.appendChild(theClone);
+                theSecondContainer.appendChild(secondClone);
+            })
+
+            document.querySelector(".fwd p").style.display = "block";
+            document.querySelector(".bwd p").style.display = "block";
+
+            document.querySelector(".preview_pics_container section").classList.add("preview_selected");
+
+            theContainer.addEventListener("scroll", scrollFunc);
+            document.querySelectorAll(".preview_pics_container section").forEach(each => {
+                each.addEventListener("click", previewClick);
+            })
+        }
+
+
+        function buildCarouselBarcelona() {
+            numberOfPicsInCarousel = barcelonaJSON.renovering_img.length;
+            theContainer.innerHTML = "";
+            theSecondContainer.innerHTML = "";
+
+            barcelonaJSON.renovering_img.forEach((renovering_img, index) => {
+                const theClone = document.querySelector(".carousel_temp").cloneNode(true).content;
+                const secondClone = document.querySelector(".carousel_temp").cloneNode(true).content;
+
+                theClone.querySelector("img").src = renovering_img.guid;
+                secondClone.querySelector("img").src = renovering_img.guid;
+                secondClone.querySelector("section").dataset.myIndex = index;
+
+                document.querySelector(".carousel_section_title").innerHTML = barcelonaJSON.title.rendered;
+                document.querySelector(".carousel_content").innerHTML = barcelonaJSON.content.rendered;
+
+                theContainer.appendChild(theClone);
+                theSecondContainer.appendChild(secondClone);
+            })
+
+            document.querySelector(".fwd p").style.display = "block";
+            document.querySelector(".bwd p").style.display = "block";
+
+            document.querySelector(".preview_pics_container section").classList.add("preview_selected");
+
+            theContainer.addEventListener("scroll", scrollFunc);
+            document.querySelectorAll(".preview_pics_container section").forEach(each => {
+                each.addEventListener("click", previewClick);
+            })
+        }
+
+
+        function buildCarouselChamonix() {
+            numberOfPicsInCarousel = chamonixJSON.renovering_img.length;
+            theContainer.innerHTML = "";
+            theSecondContainer.innerHTML = "";
+
+            chamonixJSON.renovering_img.forEach((renovering_img, index) => {
+                const theClone = document.querySelector(".carousel_temp").cloneNode(true).content;
+                const secondClone = document.querySelector(".carousel_temp").cloneNode(true).content;
+
+                theClone.querySelector("img").src = renovering_img.guid;
+                secondClone.querySelector("img").src = renovering_img.guid;
+                secondClone.querySelector("section").dataset.myIndex = index;
+
+                document.querySelector(".carousel_section_title").innerHTML = chamonixJSON.title.rendered;
+                document.querySelector(".carousel_content").innerHTML = chamonixJSON.content.rendered;
+
+                theContainer.appendChild(theClone);
+                theSecondContainer.appendChild(secondClone);
+            })
+
+            document.querySelector(".fwd p").style.display = "block";
+            document.querySelector(".bwd p").style.display = "block";
+
+            document.querySelector(".preview_pics_container section").classList.add("preview_selected");
+
+            theContainer.addEventListener("scroll", scrollFunc);
+            document.querySelectorAll(".preview_pics_container section").forEach(each => {
+                each.addEventListener("click", previewClick);
+            })
+        }
+
+        function buildCarouselToscana() {
+            numberOfPicsInCarousel = toscanaJSON.renovering_img.length;
+            theContainer.innerHTML = "";
+            theSecondContainer.innerHTML = "";
+
+            toscanaJSON.renovering_img.forEach((renovering_img, index) => {
+                const theClone = document.querySelector(".carousel_temp").cloneNode(true).content;
+                const secondClone = document.querySelector(".carousel_temp").cloneNode(true).content;
+
+                theClone.querySelector("img").src = renovering_img.guid;
+                secondClone.querySelector("img").src = renovering_img.guid;
+                secondClone.querySelector("section").dataset.myIndex = index;
+
+                document.querySelector(".carousel_section_title").innerHTML = toscanaJSON.title.rendered;
+                document.querySelector(".carousel_content").innerHTML = toscanaJSON.content.rendered;
+
+                theContainer.appendChild(theClone);
+                theSecondContainer.appendChild(secondClone);
+            })
+
+            document.querySelector(".fwd p").style.display = "block";
+            document.querySelector(".bwd p").style.display = "block";
+
+            document.querySelector(".preview_pics_container section").classList.add("preview_selected");
+
+            theContainer.addEventListener("scroll", scrollFunc);
+            document.querySelectorAll(".preview_pics_container section").forEach(each => {
+                each.addEventListener("click", previewClick);
+            })
+
         }
 
         function scrollFunc() {
@@ -351,7 +514,11 @@
                 document.querySelector(".bwd").style.opacity = 0.3;
                 document.querySelector(".bwd").style.cursor = "default";
             }
+
         }
+
     </script>
     <script src="burger.js"></script>
-</body></html>
+</body>
+
+</html>
