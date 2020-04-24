@@ -384,6 +384,12 @@ footer i {
     text-align: center;
 }
 
+.ss_btns button:hover {
+    color: #48b739;
+    border-bottom: 2px solid #48b739;
+    transition: .8s;
+}
+
 /*------------------BILLEDKARUSELLER / GALLERIES -------------*/
 
 .carousel {
@@ -472,7 +478,7 @@ footer i {
     font-family: 'Open Sans', sans-serif;
     color: white;
     font-size: 17px;
-    margin: 45px;
+    margin: 0 45px 45px 45px;
 }
 
 input[type=text],
@@ -531,7 +537,7 @@ input[type=send] {
     h1 {
         font-family: 'Poiret One', cursive;
         color: #d8ab7b;
-        margin-bottom: 0em;
+        margin-bottom: 0.3em;
         padding: 0;
         text-align: center;
         margin-top: 1em;
@@ -692,6 +698,9 @@ input[type=send] {
         display: grid;
     }
 
+    #destinationer {
+        padding: 0 8em;
+    }
 
     .iframe_container_2 {
         padding-top: 4em;
@@ -704,7 +713,7 @@ input[type=send] {
         height: 700px;
     }
 
-    #orientering .iframe_container {
+    #orientering .iframe_container iframe {
         padding: 0 6em;
         height: 620px;
     }
@@ -816,7 +825,14 @@ input[type=send] {
         margin-left: -35px;
     }
 
+    .kontakt {
+        margin-top: 2em;
+    }
 
+    .kontakt h3,
+    .kontakt p {
+        margin-left: 45px;
+    }
 
 
 
