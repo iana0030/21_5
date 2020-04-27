@@ -587,7 +587,7 @@ input[type=send] {
     ol,
     ul {
         line-height: 2em;
-        font-size: 15px;
+        font-size: 1em;
         margin: 0.5em
     }
 
@@ -690,6 +690,9 @@ input[type=send] {
         position: relative;
     }
 
+    footer {
+        padding: 0 9em;
+    }
 
     /*--------------- Video ------------*/
     #showcase .iframe_container {
@@ -704,7 +707,6 @@ input[type=send] {
     }
 
     .p_forside {
-        font-size: 1.5em;
         max-width: 1300px;
         margin: 0 auto;
     }
