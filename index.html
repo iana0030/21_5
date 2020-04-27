@@ -100,6 +100,9 @@
             <source src="videosplash.mp4" type="video/mp4"></video>
         <div class="overlay">
             <h1 class="h1_forside"></h1>
+            <a href="index.html#forside_content">
+                <div class="arrow-down up_down"><i class="fas fa-sort-down fa-5x"></i></div>
+            </a>
         </div>
 
 
@@ -107,7 +110,7 @@
             <iframe width="560" height="315" src="https://www.youtube.com/embed/N9Cv-4CPd5I?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div> -->
     </header>
-    <p class="p_forside"></p>
+    <p class="p_forside" id="forside_content"></p>
 
     <div class="btn_container">
         <button id="se_priser"><a href="omkostninger.html">Se priser</a></button>
@@ -151,8 +154,11 @@
             document.querySelector("h1").textContent = page.title.rendered;
             document.querySelector("p").innerHTML = page.content.rendered;
         }
+
     </script>
 
     <script src="burger.js"></script>
 
-</body></html>
+</body>
+
+</html>
