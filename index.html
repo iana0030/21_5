@@ -17,7 +17,6 @@
 <body>
 
     <!-- html templates her -->
-    <section id="splash"></section>
 
     <!--------------- MObile First navbar------->
     <nav id="navbar">
@@ -93,13 +92,18 @@
             </li>
         </ul>
     </nav>
-    <h1 class="h1_forside"></h1>
     <header id="showcase">
-        <div class="iframe_container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/N9Cv-4CPd5I?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <video autoplay muted loop id="my_video">
+            <source src="videosplash.mp4" type="video/mp4"></video>
+        <div class="overlay">
+            <h1 class="h1_forside"></h1>
         </div>
-    </header>
 
+
+        <!--<div class="iframe_container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/N9Cv-4CPd5I?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div> -->
+    </header>
     <p class="p_forside"></p>
 
     <div class="btn_container">
@@ -142,11 +146,8 @@
             document.querySelector("h1").textContent = page.title.rendered;
             document.querySelector("p").innerHTML = page.content.rendered;
         }
-
     </script>
 
     <script src="burger.js"></script>
 
-</body>
-
-</html>
+</body></html>

@@ -231,6 +231,22 @@ img {
     padding: 0;
 }
 
+#my_video {
+    width: 100vw;
+    margin-top: 53.4px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+}
+}
 
 /*--------------------Omkostninger img----------*/
 
@@ -718,6 +734,25 @@ input[type=send] {
         height: 620px;
     }
 
+    #my_video {
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+        margin: 0;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     /*----------------Destinationer----------*/
     .wp-block-columns {
