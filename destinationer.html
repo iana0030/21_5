@@ -9,37 +9,6 @@
     <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e1ee2b9569.js" crossorigin="anonymous"></script>
     <title>21-5 - Destinationer</title>
-    <style>
-        @media screen and (min-width:750px) {
-            #dest_istand .data-container {
-                margin: 0 auto;
-                display: grid;
-                padding: 2em;
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-                cursor: pointer;
-                grid-gap: 3em;
-                ;
-                background-color: rgba(97, 134, 165, 0.22);
-                border-radius: 5px;
-            }
-
-            #dest_istand .data-container h3 {
-                color: #757575;
-            }
-
-            #dest_istand h1 {
-                margin-bottom: 1em;
-            }
-
-
-            #dest_istand .data-container img:hover {
-                transform: scale(1.02);
-                transition: .8s;
-            }
-        }
-    </style>
-
-
 </head>
 
 <body>
@@ -285,6 +254,7 @@
 
                 klon.querySelector(".sted").textContent = destination.overskrift;
                 klon.querySelector(".sted_pic").src = destination.billede.guid;
+                klon.querySelector(".sted_pic").alt = "billede af boligen i " + destination.overskrift;
 
                 /* eventlistener som går til ny side ved klik på enkel destination */
                 klon.querySelector(".destinationer").addEventListener("click", () => {
@@ -318,7 +288,9 @@
                 const secondClone = document.querySelector(".carousel_temp").cloneNode(true).content;
 
                 theClone.querySelector("img").src = renovering_img.guid;
+                theClone.querySelector("img").alt = "fra skrot til slot paris";
                 secondClone.querySelector("img").src = renovering_img.guid;
+                secondClone.querySelector("img").alt = "fra skrot til slot paris";
                 secondClone.querySelector("section").dataset.myIndex = index;
 
                 document.querySelector(".carousel_section_title").innerHTML = parisJSON.title.rendered;
@@ -350,7 +322,9 @@
                 const secondClone = document.querySelector(".carousel_temp").cloneNode(true).content;
 
                 theClone.querySelector("img").src = renovering_img.guid;
+                theClone.querySelector("img").alt = "fra skrot til slot mallorca";
                 secondClone.querySelector("img").src = renovering_img.guid;
+                secondClone.querySelector("img").alt = "fra skrot til slot mallorca";
                 secondClone.querySelector("section").dataset.myIndex = index;
 
                 document.querySelector(".carousel_section_title").innerHTML = mallorcaJSON.title.rendered;
@@ -382,7 +356,9 @@
                 const secondClone = document.querySelector(".carousel_temp").cloneNode(true).content;
 
                 theClone.querySelector("img").src = renovering_img.guid;
+                theClone.querySelector("img").alt = "fra skrot til slot barcelona";
                 secondClone.querySelector("img").src = renovering_img.guid;
+                secondClone.querySelector("img").alt = "fra skrot til slot barcelona";
                 secondClone.querySelector("section").dataset.myIndex = index;
 
                 document.querySelector(".carousel_section_title").innerHTML = barcelonaJSON.title.rendered;
@@ -414,7 +390,9 @@
                 const secondClone = document.querySelector(".carousel_temp").cloneNode(true).content;
 
                 theClone.querySelector("img").src = renovering_img.guid;
+                theClone.querySelector("img").alt = "fra skrot til slot chamonix";
                 secondClone.querySelector("img").src = renovering_img.guid;
+                secondClone.querySelector("img").alt = "fra skrot til slot chamonix";
                 secondClone.querySelector("section").dataset.myIndex = index;
 
                 document.querySelector(".carousel_section_title").innerHTML = chamonixJSON.title.rendered;
@@ -445,7 +423,9 @@
                 const secondClone = document.querySelector(".carousel_temp").cloneNode(true).content;
 
                 theClone.querySelector("img").src = renovering_img.guid;
+                theClone.querySelector("img").alt = "fra skrot til slot toscana";
                 secondClone.querySelector("img").src = renovering_img.guid;
+                secondClone.querySelector("img").alt = "fra skrot til slot toscana";
                 secondClone.querySelector("section").dataset.myIndex = index;
 
                 document.querySelector(".carousel_section_title").innerHTML = toscanaJSON.title.rendered;
@@ -521,6 +501,9 @@
             }
 
         }
+
     </script>
     <script src="burger.js"></script>
-</body></html>
+</body>
+
+</html>

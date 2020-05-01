@@ -97,11 +97,7 @@
         <button id="destination_x">Tilbage</button>
         <article id="destinationer">
             <h1></h1>
-            <h3></h3>
             <p></p>
-            <h3></h3>
-            <p></p>
-            <img src="" alt="">
         </article>
     </section>
     <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="far fa-arrow-alt-circle-up"></i></button>
@@ -223,7 +219,9 @@
                     const secondClone = document.querySelector("template").cloneNode(true).content;
 
                     theClone.querySelector("img").src = bolig_img.guid;
+                    theClone.querySelector("img").alt = "billede af bolig i paris";
                     secondClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("img").alt = "billede af bolig i paris";
                     secondClone.querySelector("section").dataset.myIndex = index;
 
                     document.querySelector(".carousel_title").innerHTML = parisJSON.title.rendered;
@@ -253,7 +251,9 @@
                     const secondClone = document.querySelector("template").cloneNode(true).content;
 
                     theClone.querySelector("img").src = bolig_img.guid;
+                    theClone.querySelector("img").alt = "billede af bolig i mallorca";
                     secondClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("img").alt = "billede af bolig i mallorca";
                     secondClone.querySelector("section").dataset.myIndex = index;
 
                     document.querySelector(".carousel_title").innerHTML = mallorcaJSON.title.rendered;
@@ -282,7 +282,9 @@
                     const secondClone = document.querySelector("template").cloneNode(true).content;
 
                     theClone.querySelector("img").src = bolig_img.guid;
+                    theClone.querySelector("img").alt = "billede af bolig i barcelona";
                     secondClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("img").alt = "billede af bolig i barcelona";
                     secondClone.querySelector("section").dataset.myIndex = index;
 
                     document.querySelector(".carousel_title").innerHTML = barcelonaJSON.title.rendered;
@@ -311,7 +313,9 @@
                     const secondClone = document.querySelector("template").cloneNode(true).content;
 
                     theClone.querySelector("img").src = bolig_img.guid;
+                    theClone.querySelector("img").alt = "billede af bolig i chamonix";
                     secondClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("img").alt = "billede af bolig i chamonix";
                     secondClone.querySelector("section").dataset.myIndex = index;
 
                     document.querySelector(".carousel_title").innerHTML = chamonixJSON.title.rendered;
@@ -340,7 +344,9 @@
                     const secondClone = document.querySelector("template").cloneNode(true).content;
 
                     theClone.querySelector("img").src = bolig_img.guid;
+                    theClone.querySelector("img").alt = "billede af bolig i sydfrankrig";
                     secondClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("img").alt = "billede af bolig i sydfrankrig";
                     secondClone.querySelector("section").dataset.myIndex = index;
 
                     document.querySelector(".carousel_title").innerHTML = sydfrankrigJSON.title.rendered;
@@ -369,7 +375,9 @@
                     const secondClone = document.querySelector("template").cloneNode(true).content;
 
                     theClone.querySelector("img").src = bolig_img.guid;
+                    theClone.querySelector("img").alt = "billede af bolig i toscana";
                     secondClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("img").alt = "billede af bolig i toscana";
                     secondClone.querySelector("section").dataset.myIndex = index;
 
                     document.querySelector(".carousel_title").innerHTML = toscanaJSON.title.rendered;
@@ -398,7 +406,9 @@
                     const secondClone = document.querySelector("template").cloneNode(true).content;
 
                     theClone.querySelector("img").src = bolig_img.guid;
+                    theClone.querySelector("img").alt = "billede af bolig i sydspanien";
                     secondClone.querySelector("img").src = bolig_img.guid;
+                    secondClone.querySelector("img").alt = "billede af bolig i sydspanien";
                     secondClone.querySelector("section").dataset.myIndex = index;
 
                     document.querySelector(".carousel_title").innerHTML = sydspanienJSON.title.rendered;

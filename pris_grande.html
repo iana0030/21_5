@@ -106,7 +106,6 @@
             </ul>
         </div>
         <p></p>
-        <img src="" alt="">
         <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="far fa-arrow-alt-circle-up"></i></button>
     </section>
 
@@ -191,7 +190,9 @@
                 const secondClone = document.querySelector("template").cloneNode(true).content;
 
                 theClone.querySelector("img").src = bolig_img.guid;
+                theClone.querySelector("img").alt = "billede af bolig i grande forening";
                 secondClone.querySelector("img").src = bolig_img.guid;
+                secondClone.querySelector("img").alt = "billede af bolig i grande forening";
                 secondClone.querySelector("section").dataset.myIndex = index;
 
 

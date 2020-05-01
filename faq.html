@@ -5,144 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e1ee2b9569.js" crossorigin="anonymous"></script>
     <title>21-5 - Ofte stillede spørgsmål</title>
-
-    <style>
-        .kat {
-            cursor: pointer;
-            font-family: 'Poiret One', cursive;
-            font-size: 1.5em;
-            color: #d8ab7b;
-            transition: 0.4s;
-        }
-
-        summary::-webkit-details-marker {
-            margin-right: 0.5em;
-            transition: 1s;
-        }
-
-        summary {
-            padding: 0.5em;
-            border-top: 1px solid #3f7637;
-            font-weight: 700;
-        }
-
-        .kat:last-child summary {
-            border-bottom: 1px solid #3f7637;
-        }
-
-        #kategorier {
-            margin: 1em 0;
-        }
-
-        .questions {
-            border-top: 1px solid #3f7637;
-            cursor: pointer;
-            transition: 0.4s;
-        }
-
-        .questions h3 {
-            font-size: 0.7em;
-            font-family: 'Open Sans', sans-serif;
-            margin: 0.3em;
-        }
-
-        .questions h3:hover {
-            // color: rgba(25, 25, 26, 0.65);
-            // transition: 0.4s;
-        }
-
-        .panel {
-            display: none;
-            overflow: hidden;
-            transition: 0.4s;
-            padding: 0 1em;
-            cursor: auto;
-            font-size: 0.6em;
-        }
-
-        .active {
-            display: block;
-            transition: 0.4s;
-        }
-
-        details[open] div {
-            animation-name: slideDown;
-            animation-duration: 0.4s;
-            animation-fill-mode: forwards;
-        }
-
-        details[open] div article {
-            animation-name: fadeIn;
-            animation-duration: 0.8s;
-            animation-fill-mode: forwards;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                padding: 0;
-                margin: 0;
-            }
-
-            to {
-                opacity: 1;
-                padding: 0 0.5em;
-                margin: 0.5em;
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-
-        @media screen and (min-width:750px) {
-            #faq {
-                max-width: 1300px;
-                margin: 0 auto;
-                padding: 0 2em 120px 2em;
-            }
-
-            .questions {
-                padding: 0.5em;
-            }
-
-            .spgsml:hover {
-                color: #f0c392;
-                transition: .8s;
-            }
-
-            summary {
-                font-size: 1.2em;
-            }
-
-            summary:hover {
-                color: #f0c392;
-                transition: .8s;
-            }
-
-            #kategorier {
-                margin: 3em 0;
-            }
-
-            .panel {
-                padding: 0 1em 0.5em 1em;
-            }
-        }
-    </style>
-
-
 </head>
 
 <body>
@@ -263,9 +129,7 @@
                 <div id="drift" data-kat="21-5 driften og hverdagen"></div>
             </details>
         </div>
-
     </section>
-
 
 
 
@@ -354,18 +218,13 @@
                 if (question.kategori == "21-5 driften og hverdagen") {
                     document.querySelector("#drift").appendChild(klon);
                 }
-
             })
-
-
-
         }
 
 
         function visSvar() {
             console.log(this.nextElementSibling);
             this.nextElementSibling.classList.toggle("active");
-
         }
 
 

@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e1ee2b9569.js" crossorigin="anonymous"></script>
@@ -29,7 +28,7 @@
             margin: 1em;
         }
 
-        @media screen and (min-width:750px) {
+        @media screen and (min-width:760px) {
             .personer img {
                 width: 100%;
                 height: 450px;
@@ -163,7 +162,6 @@
         <article class="personer">
             <h3 class="navn"></h3>
             <img src="" alt="">
-            <p class="pos"></p>
             <p class="email"></p>
             <details>
                 <summary class="info"></summary>
@@ -216,7 +214,6 @@
 
             visPersoner();
             visTop();
-            //  visBottom();
         }
 
         /* indhentning af json her*/
@@ -230,13 +227,10 @@
 
                 klon.querySelector(".navn").textContent = person.navn;
                 klon.querySelector("img").src = person.person_img.guid;
-                //   klon.querySelector("#pos").textContent = person.position;
+                klon.querySelector("img").alt = "Billede af " + person.navn;
                 klon.querySelector(".email").innerHTML = person.email;
                 klon.querySelector(".info").textContent = person.info + person.position;
                 klon.querySelector(".content").innerHTML = person.content.rendered;
-                klon.querySelector(".personer").addEventListener("click", () => {
-                    // location.href = `single.html?id=${person.id}`;
-                });
                 container.appendChild(klon)
             })
 
